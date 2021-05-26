@@ -10002,3 +10002,23 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.sidebar {
+  width: 20%;
+  height: 100%;
+  background-color: #b51724;
+  outline: 1px solid black;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.sidebarLogo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sidebarContainer {
+  display: flex;
+  flex-direction: column;
+}
