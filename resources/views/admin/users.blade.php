@@ -3,5 +3,6 @@
 @section('content')
 
 
-<p> hahha</p>
+
+
 @endsection

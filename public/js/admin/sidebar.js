@@ -1,16 +1,25 @@
+let menuButton = document.querySelector(".button-menu");
+let container = document.querySelector(".container");
+let pageContent = document.querySelector(".page-content");
+let responsiveBreakpoint = 991;
 
-function closeSidebar(){
-
-    sidebar =  document.getElementById("sidebar");
-    sidebar.style.transition = "all 1s";
-    sidebar.style.marginLeft = "-20%";
-
+if (window.innerWidth <= responsiveBreakpoint) {
+  container.classList.add("nav-closed");
 }
 
-function openSidebar(){
+menuButton.addEventListener("click", function () {
+  container.classList.toggle("nav-closed");
+});
 
-    sidebar =  document.getElementById("sidebar");
-    sidebar.style.transition = "all 1s";
-    sidebar.style.marginLeft = "0%";
+pageContent.addEventListener("click", function () {
+  if (window.innerWidth <= responsiveBreakpoint) {
+    container.classList.add("nav-closed");
+  }
+});
 
-}
+
+window.addEventListener("resize", function () {
+  if (window.innerWidth > responsiveBreakpoint) {
+    container.classList.remove("nav-closed");
+  }
+});
