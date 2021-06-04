@@ -38,7 +38,7 @@
                 <select class="form-control" name="category_id" aria-label="Default select example">
                     <option value="0" selected disabled>Izberi kategorijo pijače</option>
                     @foreach ($drinkCategories as $drinkCategory)
-                        <option value="{{ $drinkCategory->id }}"> {{ $drinkCategory->name }} </option>
+                        <option value="{{ $drinkCategory->id }}"> {{ $drinkCategory->categoryName }} </option>
                     @endforeach
                 </select>
             </div>

@@ -1,54 +1,64 @@
 @extends("layouts.adminLayout")
 @section('content')
 
-    <button onclick="location.href='/dodaj-pijaco'" class="btn btn-success">Dodaj Pijačo</button>
+    <div class="container" id="drinks-index-container">
 
-
-
-
-    <div class="container">
-
-
-
-
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Ime</th>
-                    <th>Cena</th>
-                    <th>Kategorija</th>
-                    <th>Teža Embelaže</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($drinks as $drink)
-                    <tr>
-                        <td>{{ $drink->name }}</td>
-                        <td>{{ $drink->price }}</td>
-                        <td>{{ $drink->category_id }}</td>
-
-
-                        @if (is_null($drink->packing_weight))
-                            <td>{{ 'X' }} </td>
-                        @else
-                            <td>{{ $drink->packing_weight . ' Kg' }}</td>
-                        @endif
-
-
-
-                    </tr>
-                @endforeach
-
-            </tbody>
-        </table>
-        <!-- pages -->
-        <div class="table-responsive mb-2">
-            <div class="mx-auto">
-                {{ $drinks->links('pagination::bootstrap-4') }}
-            </div>
+        <!-- SEARCH -->
+        <div class="form-group">
+            <input id="myInput" class="form-control" type="text" placeholder="Search..">
         </div>
 
-    </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Ime</th>
+                        <th scope="col">Cena</th>
+                        <th scope="col">Kategorija</th>
+                        <th scope="col">Embelaža </th>
+                        <th scope="col"># </th>
+
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    @foreach ($drinks as $drink)
+                        <tr>
+                            <td>{{ $drink->name }}</td>
+                            <td>{{ $drink->price . '€' }}</td>
+                            <td>{{ $drink->categoryName }}</td>
+
+                            @if (is_null($drink->packing_weight))
+                                <td>{{ '#' }}</td>
+                            @else
+                                <td>{{ $drink->packing_weight . ' Kg' }}</td>
+                            @endif
+
+                            <td>
+                                <button class="btn btn-primary">Uredi</button>
+                                <button class="btn btn-danger">Izbrisi</button>
+                            </td>
+
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
+
+    </div> <!-- end CONTAINER -->
+
+
+    <!-- live search script -->
+    <script>
+        $(document).ready(function() {
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+
+    </script>
 
 @endsection

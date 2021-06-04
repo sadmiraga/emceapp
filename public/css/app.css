@@ -13377,3 +13377,14 @@ body {
   background-color: #e9ecef;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 }
+
+#drinks-index-container {
+  display: block;
+}
+
+@media only screen and (max-width: 600px) {
+  table#table > tr > td {
+    width: 100%;
+    float: left;
+  }
+}

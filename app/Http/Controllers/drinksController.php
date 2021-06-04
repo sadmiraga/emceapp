@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 //custom
+use Illuminate\Support\Facades\DB;
 use App\Models\drinkCategory;
 use App\Models\drink;
 
@@ -16,7 +17,13 @@ class drinksController extends Controller
     //display all drinks
     public function index()
     {
-        $drinks = drink::paginate(1);
+        $drinks = drink::all();
+
+        $drinks = DB::table('drinks')->join('drink_categories', function ($join) {
+            $join->on('drink_categories.id', '=', 'drinks.category_id');
+        })->select('*')->get();
+
+
         return view('admin.drinks.drinksIndex')->with('drinks', $drinks);
     }
 

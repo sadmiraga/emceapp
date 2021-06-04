@@ -16,10 +16,10 @@ class drinkCategorySeeder extends Seeder
     {
         DB::table('drink_categories')->delete();
         $users = array(
-            array('id' => 1, 'name' => 'Brezalkoholne pijače'),
-            array('id' => 2, 'name' => 'Alkoholne pijače'),
-            array('id' => 3, 'name' => 'Žgane pijače'),
-            array('id' => 4, 'name' => 'Tople pijače'),
+            array('id' => 1, 'categoryName' => 'Brezalkoholne pijače'),
+            array('id' => 2, 'categoryName' => 'Alkoholne pijače'),
+            array('id' => 3, 'categoryName' => 'Žgane pijače'),
+            array('id' => 4, 'categoryName' => 'Tople pijače'),
 
         );
         DB::table('drink_categories')->insert($users);
