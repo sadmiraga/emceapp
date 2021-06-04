@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class drinkCategory extends Model
+class drink extends Model
 {
     use HasFactory;
 
-    //DRINK
-    public function drink()
+    //DRINK CATEGORY
+    public function drinkCategory()
     {
-        return $this->hasMany('App\Models\drink');
+        return $this->belongsTo('App\Models\drinkCategory');
     }
 }

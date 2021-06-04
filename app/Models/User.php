@@ -11,6 +11,12 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function userType()
+    {
+
+        return $this->belongsTo('App\Models\userType');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

@@ -38,9 +38,11 @@ body {
     width: 220px;
     box-sizing: border-box;
     box-shadow: 0 0 2rem 0 rgb(0 0 0 / 5%);
-    overflow: hidden;
+    overflow: absolute;
     transition: width 0.5s ease;
+    background-color: #b51724;
 }
+
 .container.nav-closed .sidebar,
 .container.nav-closed .header-logo {
     width: 0;
@@ -53,6 +55,7 @@ body {
 .sidebar ul li {
     display: flex;
     align-items: center;
+    color: white !important;
 }
 .sidebar ul li a {
     color: #000;
@@ -65,7 +68,7 @@ body {
 }
 .sidebar ul li a.active,
 .sidebar ul li a:hover {
-    background: #e8ecef;
+    background: #750f17;
 }
 .sidebar ul li span {
     margin-left: 16px;
@@ -132,6 +135,7 @@ body {
 }
 .header-logo {
     display: flex;
+    flex-direction: column;
     align-items: center;
     width: 220px;
     overflow: hidden;
@@ -170,4 +174,13 @@ body {
     .header-logo {
         display: none;
     }
+}
+
+.sidebar-menu-item-text {
+    color: white;
+    font-weight: 500;
+}
+
+.sidebar-menu-item-icon {
+    color: white;
 }

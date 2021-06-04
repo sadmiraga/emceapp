@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDrinkCategoriesTable extends Migration
+class CreateDrinksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,18 @@ class CreateDrinkCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('drink_categories', function (Blueprint $table) {
+        Schema::create('drinks', function (Blueprint $table) {
             $table->increments('id');
+
             $table->string('name');
+            $table->double('price');
+            $table->boolean('weightable');
+            $table->double('packing_weight')->nullable();
+
+
+            $table->unsignedInteger('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('drink_categories')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -27,6 +36,6 @@ class CreateDrinkCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('drink_categories');
+        Schema::dropIfExists('drinks');
     }
 }

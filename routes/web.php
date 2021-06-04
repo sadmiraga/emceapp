@@ -22,4 +22,18 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+
+//users
 Route::get('/zaposleni', 'adminController@usersIndex');
+Route::get('/uredi-zaposleni/{userID}', 'adminController@editUserIndex');
+Route::post('/editUserExe', 'adminController@editUserExe');
+
+
+//drinks
+Route::get('/pijace', 'drinksController@index');
+
+Route::get('/uredi-pijaco/{drinkID}', 'drinksController@editDrink');
+Route::post('/uredi-pijaco-exe', 'drinksController@editDrinkExe');
+
+Route::get('/dodaj-pijaco', 'drinksController@newDrink');
+Route::post('/dodaj-pijaco-exe', 'drinksController@newDrinkExe');
