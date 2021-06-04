@@ -33,6 +33,7 @@ Route::post('/editUserExe', 'adminController@editUserExe');
 Route::get('/pijace', 'drinksController@index');
 
 Route::get('/uredi-pijaco/{drinkID}', 'drinksController@editDrink');
+Route::get('/izbrisi-pijaco/{drinkID}', 'drinkController@deleteDrink');
 Route::post('/uredi-pijaco-exe', 'drinksController@editDrinkExe');
 
 Route::get('/dodaj-pijaco', 'drinksController@newDrink');

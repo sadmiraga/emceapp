@@ -34,8 +34,13 @@
                             @endif
 
                             <td>
-                                <button class="btn btn-primary">Uredi</button>
-                                <button class="btn btn-danger">Izbrisi</button>
+                                <!-- EDIT -->
+                                <button onclick="location.href='/uredi-pijaco/{{ $drink->id }}'"
+                                    class="btn btn-primary">Uredi</button>
+
+                                <!-- DELETE -->
+                                <button onclick="location.href='/izbrisi-pijaco/{{ $drink->id }}'"
+                                    class="btn btn-danger">Izbrisi</button>
                             </td>
 
                         </tr>
@@ -43,6 +48,8 @@
                 </tbody>
             </table>
         </div>
+
+        <button onclick="location.href='/dodaj-pijaco'" class="btn btn-success">Dodaj Pijačo</button>
 
 
     </div> <!-- end CONTAINER -->

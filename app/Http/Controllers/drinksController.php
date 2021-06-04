@@ -23,7 +23,6 @@ class drinksController extends Controller
             $join->on('drink_categories.id', '=', 'drinks.category_id');
         })->select('*')->get();
 
-
         return view('admin.drinks.drinksIndex')->with('drinks', $drinks);
     }
 
