@@ -13394,3 +13394,12 @@ body {
     float: left;
   }
 }
+#menu-cover {
+  min-width: 100%;
+  max-height: 40%;
+  -o-object-fit: auto;
+     object-fit: auto;
+  -o-object-fit: none;
+     object-fit: none;
+  background-color: #e8e8e8;
+}

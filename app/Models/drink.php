@@ -9,9 +9,15 @@ class drink extends Model
 {
     use HasFactory;
 
-    //DRINK CATEGORY
+    //drink category
     public function drinkCategory()
     {
         return $this->belongsTo('App\Models\drinkCategory');
+    }
+
+    //MENU
+    public function menu()
+    {
+        return $this->hasMany('App\Models\menu');
     }
 }

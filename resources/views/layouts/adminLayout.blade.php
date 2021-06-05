@@ -63,7 +63,7 @@
                 <ul>
 
                     <li class="sidebar-menu-item">
-                        <a href="#">
+                        <a href="/meni">
                             <i class="fa fa-list-alt" style="color:white;"></i>
                             <span class="sidebar-menu-item-text">Meni</span>
                         </a>
