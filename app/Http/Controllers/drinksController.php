@@ -55,4 +55,35 @@ class drinksController extends Controller
 
         return redirect('/pijace')->with('message', 'Uspesno ste dodali novo pijaco');
     }
+
+
+    //display edit drink
+    public function editDrink($drinkID)
+    {
+        $drink = drink::findOrFail($drinkID);
+        $drinkCategories = drinkCategory::all();
+        return view('admin.drinks.editDrink')->with('drink', $drink)->with('drinkCategories', $drinkCategories);
+    }
+
+
+    //execute edit drink
+    public function editDrinkExe(Request $request)
+    {
+        $drink = drink::findOrFail($request->input('drinkID'));
+        $drink->name = $request->input('drinkName');
+        $drink->price = $request->input('drinkPrice');
+        $drink->category_id = $request->input('category_id');
+
+        if ($request->input('packingWeight') == null) {
+            $drink->weightable = false;
+            $drink->packing_weight = null;
+        } else {
+            $drink->weightable = true;
+            $drink->packing_weight = $request->input('packingWeight');
+        }
+
+        $drink->save();
+
+        return redirect('/pijace')->with('message', 'Uspešno ste posodobili podatke o pijaci');
+    }
 }

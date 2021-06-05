@@ -1,5 +1,9 @@
 @extends("layouts.adminLayout")
 
+@section('admin-title')
+    {{ 'Dodaj pijaco' }}
+@endsection
+
 @section('content')
 
 
