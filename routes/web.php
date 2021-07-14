@@ -13,6 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware(['ownerMiddleware'])->group(function () {
+
+    //users
+    Route::get('/zaposleni', 'adminController@usersIndex');
+    Route::get('/uredi-zaposleni/{userID}', 'adminController@editUserIndex');
+    Route::post('/editUserExe', 'adminController@editUserExe');
+});
+
+
+Route::middleware(['bartenderMiddleware'])->group(function () {
+
+    //stocklistings
+    Route::get('/aktivni-popis', 'inventoryController@index');
+    Route::get('/zacni-popis', 'inventoryController@createStocktaking');
+});
+
+
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -29,10 +46,7 @@ Route::get('/uredi-meni/{categoryID}', 'menuController@editMenu');
 Route::get('/spremeni-pozicijo/{direction}/{drinkID}/{categoryID}', 'menuController@changePosition');
 
 
-//users
-Route::get('/zaposleni', 'adminController@usersIndex');
-Route::get('/uredi-zaposleni/{userID}', 'adminController@editUserIndex');
-Route::post('/editUserExe', 'adminController@editUserExe');
+
 
 
 //drinks
@@ -44,9 +58,9 @@ Route::get('/dodaj-pijaco', 'drinksController@newDrink');
 Route::post('/dodaj-pijaco-exe', 'drinksController@newDrinkExe');
 
 //popisi
-Route::get('/aktivni-popis', 'inventoryController@index');
 
-Route::get('/zacni-popis', 'inventoryController@createStocktaking');
+
+
 
 
 Route::get('/error-page', 'basicController@errorPage');

@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
 
 
-            $table->unsignedInteger('type_id')->unsigned();
+            $table->unsignedInteger('type_id')->unsigned()->default(1);
             $table->foreign('type_id')->references('id')->on('user_types')->onDelete('cascade');
 
 

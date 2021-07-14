@@ -19,20 +19,14 @@ class inventoryController extends Controller
     //display stocktaking INDEX
     public function index()
     {
+        $started_bool = true;
         $drinks = drink::all();
-        return view('bartender.activeInventory');
+        return view('bartender.activeInventory')->with('started_bool', $started_bool);
     }
 
 
     public function createStocktaking()
     {
-
-        //check if user is logged in
-        //$userID = Auth::id();
-        if (!isset($userID)) {
-            return view('stock.errorPage')->with('error', 'Da bi začel popis moras biti prijavljen');
-        }
-
         $current_timestamp = Carbon::now()->timestamp;
 
         $stocktacking = new stocktaking();

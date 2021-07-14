@@ -38,10 +38,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@300;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <div class="menu-header-container">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <div class="menu-header-container">
         <div class="menu-header">
             <img id="menu-logo" src="/images/logos/emceLogo.jpg" alt="emce plac">
         </div>
+
+
         <nav class="vertical-align-middle scroll">
 
             @foreach ($drinkCategories as $drinkCategory)

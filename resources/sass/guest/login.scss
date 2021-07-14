@@ -1,0 +1,25 @@
+#register-form {
+    flex: none !important;
+    max-width: 100% !important;
+}
+
+.register-container {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#register-redirect {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+#register-redirect a {
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 766px) {
+    #login-button {
+        width: 100% !important;
+    }
+}
