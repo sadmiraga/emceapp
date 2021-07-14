@@ -70,7 +70,16 @@ class drinksController extends Controller
             ->get();
 
         $json = json_decode($categoryPositions, true);
-        $max_value = max($json);
+
+
+        //check if drink is first at a list
+        if (count((array)$json) == 0) {
+            $max_value = 0;
+        } else {
+            $max_value = max($json);
+        }
+
+
         $lastPosition = $max_value['category_position'];
 
         $menu->category_position = $lastPosition + 1;

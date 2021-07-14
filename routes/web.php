@@ -13,17 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
 
 //meni
 Route::get('/meni', 'menuController@privateIndex');
+Route::get('/', 'menuController@publicIndex');
 
+Route::get('/uredi-meni/{categoryID}', 'menuController@editMenu');
+Route::get('/spremeni-pozicijo/{direction}/{drinkID}/{categoryID}', 'menuController@changePosition');
 
 
 //users
@@ -39,3 +42,11 @@ Route::get('/izbrisi-pijaco/{drinkID}', 'drinkController@deleteDrink');
 Route::post('/uredi-pijaco-exe', 'drinksController@editDrinkExe');
 Route::get('/dodaj-pijaco', 'drinksController@newDrink');
 Route::post('/dodaj-pijaco-exe', 'drinksController@newDrinkExe');
+
+//popisi
+Route::get('/aktivni-popis', 'inventoryController@index');
+
+Route::get('/zacni-popis', 'inventoryController@createStocktaking');
+
+
+Route::get('/error-page', 'basicController@errorPage');

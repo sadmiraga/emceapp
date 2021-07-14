@@ -71,7 +71,7 @@
 
                     <li class="sidebar-menu-item">
                         <a href="#"><i class="fa fa-list-ul" style="color:white;"></i>
-                            <span class="sidebar-menu-item-text">Popisi</span>
+                            <span class="sidebar-menu-item-text">Popisi (Arhiv)</span>
                         </a>
                     </li>
 
@@ -86,6 +86,22 @@
                         <a href="/pijace">
                             <i class="fa fa-coffee" style="color:white;"></i>
                             <span class="sidebar-menu-item-text">Pijače</span>
+                        </a>
+                    </li>
+
+                    <!-- @kelner -->
+                    <li class="sidebar-menu-item">
+                        <a href="/aktivni-popis">
+                            <i class="fa fa-exclamation-triangle" style="color:white;"></i>
+                            <span class="sidebar-menu-item-text">Popis</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-menu-item">
+                        <a href="/pijace">
+
+                            <i class="fa fa-check" style="color:white;"></i>
+                            <span class="sidebar-menu-item-text">Prestete pijace</span>
                         </a>
                     </li>
 

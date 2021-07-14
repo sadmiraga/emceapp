@@ -3,21 +3,43 @@
 
 @section('content')
 
-    <img id="menu-cover" src="https://kunigunda.si/wp-content/uploads/2019/07/rsz_kuni1-1-800x534.jpg" class="img-fluid"
-        alt="Responsive image">
+
+    {!! Form::open(['url' => '/spremeni-banner', 'method' => 'post', 'enctype' => 'multipart/form-data', 'files' => 'true']) !!}
+
+    {!! Form::close() !!}
 
 
 
-    <div class="row">
+    <div class="image-container">
+        <div class="image-sub-container">
+            <img id="menu-cover" src="https://i.pinimg.com/originals/38/b6/06/38b60656850e6d1948eb0280ed2388a8.png"
+                alt="Snow" style="width:100%" class="img-fluid">
+            <button class="btn"><i class="fa fa-edit"></i></button>
+        </div>
+    </div>
 
-        @foreach ($drinkCategories as $drinkCategory)
-            <div class="card" style="width: 30%;margin-top:2%">
-                <div class="card-body">
-                    {{ $drinkCategory->categoryName . ' Meni' }}
 
+
+
+
+
+
+
+
+    <div class="container-fluid">
+
+        <div class="row" id="menus-container">
+
+            @foreach ($drinkCategories as $drinkCategory)
+                <div onclick="location.href='/uredi-meni/{{ $drinkCategory->id }}'" class="card" id="menu-card">
+                    <div class="card-body">
+                        {{ $drinkCategory->categoryName . ' Meni' }}
+
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+
+        </div>
     </div>
 
 
