@@ -27,7 +27,7 @@
 
                 <div class="card drink-card">
                     <div class="drink-header">
-                        {{ $drink->name }}
+                        {{ $drink->drinkName }}
                     </div>
 
                     <div class="card-body drink-body">
@@ -50,7 +50,7 @@
 
                         </div>
 
-                        @if ($drink->weightable == true)
+                        @if ($drink->drinkWeight == null)
                             <div class="drink-weight">
 
                                 <div class="name">

@@ -20,4 +20,10 @@ class drink extends Model
     {
         return $this->hasMany('App\Models\menu');
     }
+
+    // drink_stocktaking
+    public function drink_stocktaking()
+    {
+        return $this->belongsTo('App\Models\drink_stocktaking');
+    }
 }
