@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateStocktakingsTable extends Migration
 {
@@ -15,7 +16,7 @@ class CreateStocktakingsTable extends Migration
     {
         Schema::create('stocktakings', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamp('start')->nullable();
+            $table->timestamp('start')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('end')->nullable();
             $table->boolean('completed')->default(false);
 

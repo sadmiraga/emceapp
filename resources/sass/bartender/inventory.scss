@@ -9,3 +9,42 @@
     padding: 20px;
     font-size: 25px;
 }
+
+.drink-div {
+    background-color: #e5e5e5;
+    padding: 0px 10px 10px 10px;
+    width: 80%;
+}
+
+.drink-header {
+    background-color: #b53617;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+
+.drink-card {
+    margin-bottom: 5%;
+}
+
+.drink-quanitity,
+.drink-weight {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.drink-quanitity {
+    margin-bottom: 7%;
+}
+
+.drink-input-field {
+    width: 50%;
+    height: 25px;
+    align-items: center;
+}
+
+.drink-input {
+    display: flex;
+    justify-content: center;
+}
