@@ -27,6 +27,12 @@ Route::middleware(['bartenderMiddleware'])->group(function () {
     //stocklistings
     Route::get('/aktivni-popis', 'inventoryController@index');
     Route::get('/zacni-popis', 'inventoryController@createStocktaking');
+
+    Route::get('/prestete-pijace', 'inventoryController@countedStocktaking');
+
+
+    Route::get('/add-quantity/{drinkID}/{quantity}', 'inventoryController@addQuantity');
+    Route::get('/add-weight/{drinkID}/{weight}', 'inventoryController@addWeight');
 });
 
 

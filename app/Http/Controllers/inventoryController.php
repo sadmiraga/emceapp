@@ -16,12 +16,10 @@ use App\Models\drink_stocktaking;
 
 class inventoryController extends Controller
 {
-    //
 
-    //display stocktaking INDEX
-    public function index()
+
+    public function countedStocktaking()
     {
-
         //check if bartender have opened stocktaking
         $openedCount = stocktaking::where('user_id', Auth::id())->where('completed', false)->count();
 
@@ -31,6 +29,61 @@ class inventoryController extends Controller
             $started_bool = false;
         }
 
+        $drinks  = DB::table('stocktakings')->join('drink_stocktakings', function ($join) {
+            $join->on('stocktakings.id', '=', 'drink_stocktakings.stocktaking_id');
+        })->join('drinks', function ($join) {
+            $join->on('drinks.id', '=', 'drink_stocktakings.drink_id');
+        })
+            ->select('drinks.id as drinkID', 'drinks.name as drinkName', 'drink_stocktakings.quantity as drinkQuantity', 'drink_stocktakings.weight as drinkWeight', 'stocktakings.id as stocktakingID')
+            //->selectRaw('`drinks`.`id` as uid')
+            ->where('drink_stocktakings.quantity', '!=', null)
+            ->orWhere('drink_stocktakings.weight', '!=', null)
+            ->get();
+
+        return $drinks;
+
+        return view('bartender.countedStocktaking')->with('started_bool', $started_bool)->with('drinks', $drinks);
+    }
+
+
+    //add quantity to stocktaking
+    public function addQuantity($drinkID, $quantity)
+    {
+        $activeStocktaking = stocktaking::where('user_id', '=', Auth::id())->where('completed', false)->first();
+
+        $drink_stocktaking = drink_stocktaking::where('stocktaking_id', $activeStocktaking->id)->where('drink_id', $drinkID)->first();
+        $drink_stocktaking->quantity = $quantity;
+        $drink_stocktaking->save();
+
+        return redirect('/aktivni-popis');
+    }
+
+
+    public function addWeight($drinkID, $weight)
+    {
+        $activeStocktaking = stocktaking::where('user_id', '=', Auth::id())->where('completed', false)->first();
+
+        $drink = drink::findOrFail($drinkID);
+
+        $drink_stocktaking = drink_stocktaking::where('stocktaking_id', $activeStocktaking->id)->where('drink_id', $drinkID)->first();
+        $drink_stocktaking->weight = $weight - $drink->packing_weight;
+        $drink_stocktaking->save();
+
+        return redirect('/aktivni-popis');
+    }
+
+
+    //display stocktaking INDEX
+    public function index()
+    {
+        //check if bartender have opened stocktaking
+        $openedCount = stocktaking::where('user_id', Auth::id())->where('completed', false)->count();
+
+        if ($openedCount == 1) {
+            $started_bool = true;
+        } else {
+            $started_bool = false;
+        }
 
         $drinks  = DB::table('stocktakings')->join('drink_stocktakings', function ($join) {
             $join->on('stocktakings.id', '=', 'drink_stocktakings.stocktaking_id');
@@ -43,13 +96,7 @@ class inventoryController extends Controller
             ->orWhere('drink_stocktakings.weight', '=', null)
             ->get();
 
-
-
-
-
-
-
-        return view('bartender.activeInventory')->with('started_bool', $started_bool)->with('drinks', $drinks);
+        return view('bartender.activeStocktaking')->with('started_bool', $started_bool)->with('drinks', $drinks);
     }
 
 

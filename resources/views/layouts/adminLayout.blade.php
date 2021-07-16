@@ -98,7 +98,7 @@
                     </li>
 
                     <li class="sidebar-menu-item">
-                        <a href="/pijace">
+                        <a href="/prestete-pijace">
 
                             <i class="fa fa-check" style="color:white;"></i>
                             <span class="sidebar-menu-item-text">Prestete pijace</span>

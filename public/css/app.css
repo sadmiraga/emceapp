@@ -13035,7 +13035,7 @@ h3 {
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 body {
-  overflow-x: hidden;
+  overflow-x: scroll;
 }
 
 /* Toggle Styles */
@@ -13518,6 +13518,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .drink-quanitity {
