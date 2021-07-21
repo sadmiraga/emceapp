@@ -33,6 +33,9 @@ Route::middleware(['bartenderMiddleware'])->group(function () {
 
     Route::get('/add-quantity/{drinkID}/{quantity}', 'inventoryController@addQuantity');
     Route::get('/add-weight/{drinkID}/{weight}', 'inventoryController@addWeight');
+
+    Route::get('/additional-add-quantity/{drinkID}/{quantity}', 'inventoryController@additionalAddQuantity');
+    Route::get('/additional-add-weight/{drinkID}/{weight}', 'inventoryController@additionalAddWeight');
 });
 
 

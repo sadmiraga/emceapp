@@ -13172,7 +13172,6 @@ body {
 
 .container {
   display: flex;
-  height: 100vh;
   min-width: 100% !important;
   flex-wrap: wrap;
   overflow: hidden;
@@ -13198,7 +13197,8 @@ body {
 }
 
 .sidebar {
-  height: 100%;
+  border-radius: 0px 0px 250px 0px;
+  height: 100vh;
   width: 220px;
   box-sizing: border-box;
   box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.05);

@@ -16,6 +16,7 @@
     <!-- CUSTOM JS -->
     <script src="{{ asset('js/admin/sidebar.js') }}" defer></script>
     <script src="{{ asset('js/admin/drinks.js') }}" defer></script>
+    <script src="{{ asset('js/admin/alert.js') }}" defer></script>
     @yield('js')
 
 

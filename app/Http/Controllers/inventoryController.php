@@ -18,17 +18,37 @@ class inventoryController extends Controller
 {
 
 
+    public function additionalAddWeight($drinkID, $weight)
+    {
+
+        $activeStocktaking = stocktaking::where('user_id', '=', Auth::id())->where('completed', false)->first();
+
+        $drink = drink::findOrFail($drinkID);
+
+        $drink_stocktaking = drink_stocktaking::where('stocktaking_id', $activeStocktaking->id)->where('drink_id', $drinkID)->first();
+        $drink_stocktaking->weight += ($weight - $drink->packing_weight);
+        $drink_stocktaking->save();
+
+        return redirect('/prestete-pijace')->with('successMessage', 'Uspesno ste posodobili popis');
+    }
+
+
+    //extra ADD QUANTITY
+    public function additionalAddQuantity($drinkID, $quantity)
+    {
+        $activeStocktaking = stocktaking::where('user_id', '=', Auth::id())->where('completed', false)->first();
+
+        $drink_stocktaking = drink_stocktaking::where('stocktaking_id', $activeStocktaking->id)->where('drink_id', $drinkID)->first();
+        $drink_stocktaking->quantity += $quantity;
+        $drink_stocktaking->save();
+
+        return redirect('/prestete-pijace')->with('successMessage', 'Uspesno ste posodobili popis');
+    }
+
+
+    //prikazi prestete pijace
     public function countedStocktaking()
     {
-        //check if bartender have opened stocktaking
-        $openedCount = stocktaking::where('user_id', Auth::id())->where('completed', false)->count();
-
-        if ($openedCount == 1) {
-            $started_bool = true;
-        } else {
-            $started_bool = false;
-        }
-
         $drinks  = DB::table('stocktakings')->join('drink_stocktakings', function ($join) {
             $join->on('stocktakings.id', '=', 'drink_stocktakings.stocktaking_id');
         })->join('drinks', function ($join) {
@@ -37,12 +57,12 @@ class inventoryController extends Controller
             ->select('drinks.id as drinkID', 'drinks.name as drinkName', 'drink_stocktakings.quantity as drinkQuantity', 'drink_stocktakings.weight as drinkWeight', 'stocktakings.id as stocktakingID')
             //->selectRaw('`drinks`.`id` as uid')
             ->where('drink_stocktakings.quantity', '!=', null)
-            ->orWhere('drink_stocktakings.weight', '!=', null)
+            ->orWhere('drink_stocktakings.weight', '!=', 0)
             ->get();
 
-        return $drinks;
 
-        return view('bartender.countedStocktaking')->with('started_bool', $started_bool)->with('drinks', $drinks);
+
+        return view('bartender.countedStocktaking')->with('drinks', $drinks);
     }
 
 
@@ -55,7 +75,7 @@ class inventoryController extends Controller
         $drink_stocktaking->quantity = $quantity;
         $drink_stocktaking->save();
 
-        return redirect('/aktivni-popis');
+        return redirect('/aktivni-popis')->with('successMessage', 'Uspesno ste posodobili popis');
     }
 
 
@@ -66,10 +86,16 @@ class inventoryController extends Controller
         $drink = drink::findOrFail($drinkID);
 
         $drink_stocktaking = drink_stocktaking::where('stocktaking_id', $activeStocktaking->id)->where('drink_id', $drinkID)->first();
+
+        //preveri ce je embelaza tezja vnesene teze pijace
+        if ($drink->packing_weight > $drink_stocktaking->weight) {
+            return redirect()->back()->with('errorMessage', 'Greska pri vnosu, vnesena teza je manjsa od teze embelaze');
+        }
+
         $drink_stocktaking->weight = $weight - $drink->packing_weight;
         $drink_stocktaking->save();
 
-        return redirect('/aktivni-popis');
+        return redirect('/aktivni-popis')->with('successMessage', 'Uspesno ste posodobili popis');
     }
 
 

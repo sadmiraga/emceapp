@@ -13,11 +13,26 @@
 
 
 
-
+        <!-- SEARCH -->
         <div class="input-group mb-3"> <input type="text" class="form-control">
             <div class="input-group-append"><button class="btn btn-primary"><i class="fa fa-search"></i></button>
             </div>
         </div>
+
+        <!-- success message -->
+        @if (session()->has('successMessage'))
+            <div style="text-align:center;" class="alert alert-success">
+                {{ session()->get('successMessage') }}
+            </div>
+        @endif
+
+        <!-- error message -->
+        @if (session()->has('errorMessage'))
+            <div style="text-align:center;" class="alert alert-danger">
+                {{ session()->get('errorMessage') }}
+            </div>
+        @endif
+
 
         <script>
             function submitQuantity(drinkID) {
