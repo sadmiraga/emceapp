@@ -49,11 +49,15 @@
         <nav class="vertical-align-middle scroll">
 
             @foreach ($drinkCategories as $drinkCategory)
-                @if ($loop->first)
-                    <li class="nav-item active-nav-item"><a href="">{{ $drinkCategory->categoryName }}</a></li>
+
+                @if ($drinkCategory->id == $selectedCategoryID)
+                    <li class="nav-item active-nav-item"><a
+                            href="/{{ $drinkCategory->id }}">{{ $drinkCategory->categoryName }}</a></li>
                 @else
-                    <li class="nav-item"><a href="">{{ $drinkCategory->categoryName }}</a></li>
+                    <li class="nav-item"><a href="/{{ $drinkCategory->id }}">{{ $drinkCategory->categoryName }}</a>
+                    </li>
                 @endif
+
 
             @endforeach
         </nav>
@@ -63,7 +67,14 @@
 
         @foreach ($drinks as $drink)
             <div class="menu-drink">
-                {{ $drink->name }}
+                <div class="drink-name">
+                    {{ $drink->name }}
+                </div>
+
+                <div class="drink-price">
+                    {{ $drink->price . '€' }}
+                </div>
+
             </div>
         @endforeach
     </div>

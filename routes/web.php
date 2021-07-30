@@ -51,6 +51,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/meni', 'menuController@privateIndex');
 Route::get('/', 'menuController@publicIndex');
 
+Route::get('/{drinkCategoryID}', 'menuController@getMenuDrinks');
+
 Route::get('/uredi-meni/{categoryID}', 'menuController@editMenu');
 Route::get('/spremeni-pozicijo/{direction}/{drinkID}/{categoryID}', 'menuController@changePosition');
 

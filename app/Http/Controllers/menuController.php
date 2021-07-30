@@ -16,8 +16,15 @@ class menuController extends Controller
         $drinks = drink::all();
         $drinkCategories = drinkCategory::all();
 
+        return view('guest.publicMenu')->with('drinks', $drinks)->with('drinkCategories', $drinkCategories)->with('selectedCategoryID', null);
+    }
 
-        return view('guest.publicMenu')->with('drinks', $drinks)->with('drinkCategories', $drinkCategories);
+    public function getMenuDrinks($drinkCategoryID)
+    {
+
+        $drinks = drink::where('category_id', $drinkCategoryID)->get();
+        $drinkCategories = drinkCategory::all();
+        return view('guest.publicMenu')->with('drinks', $drinks)->with('drinkCategories', $drinkCategories)->with('selectedCategoryID', $drinkCategoryID);
     }
 
 
