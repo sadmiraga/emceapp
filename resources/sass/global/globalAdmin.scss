@@ -1,0 +1,14 @@
+//resize edit user on phone
+@media only screen and (max-width: 720px) {
+    .custom-user-card,
+    .custom-login-container {
+        width: 76%;
+        margin-right: 12%;
+        margin-left: 12%;
+        margin-top: 5%;
+    }
+}
+
+.fullwidth {
+    width: 100%;
+}

@@ -1,5 +1,13 @@
 .type-description {
-    min-height: 200px;
+    min-height: 100px;
     background-color: #e9ecef;
     box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+#description-container {
+    color: dimgray;
 }

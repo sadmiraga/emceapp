@@ -10,6 +10,17 @@ use App\Models\userType;
 
 class adminController extends Controller
 {
+
+
+    //get user description
+    public function getDescription(Request $request)
+    {
+
+        $description = userType::where('id', $request->input('typeID'))->pluck('description', 'id');
+        return response()->json($description);
+    }
+
+
     //display users
     public function usersIndex()
     {
@@ -23,9 +34,9 @@ class adminController extends Controller
     public function editUserIndex($userID)
     {
         $user = User::findOrFail($userID);
-        $userType = userType::findOrFail($user->type_id);
+        $selectedUserType = userType::findOrFail($user->type_id);
         $userTypes = UserType::all();
-        return view('admin.editUser')->with('user', $user)->with('userTypes', $userTypes)->with('userType', $userType);
+        return view('admin.editUser')->with('user', $user)->with('userTypes', $userTypes)->with('selectedUserType', $selectedUserType);
     }
 
     //execute editing user
@@ -35,6 +46,6 @@ class adminController extends Controller
         $user->type_id = $request->input('type_id');
         $user->save();
 
-        return redirect()->back()->with('messsage', 'Uspešno ste premenili tip zaposlenega');
+        return redirect('/zaposleni')->with('messsage', 'Uspešno ste premenili tip zaposlenega');
     }
 }

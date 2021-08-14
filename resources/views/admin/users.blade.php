@@ -29,7 +29,6 @@
                             <button onclick="location.href='/uredi-zaposleni/{{ $user->id }}'"
                                 class="btn btn-primary">Uredi</button>
 
-                            <button class="btn btn-danger">Izbrši</button>
                         </td>
                     </tr>
                 @endforeach

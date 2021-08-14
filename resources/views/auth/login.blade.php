@@ -3,7 +3,7 @@
     <div class="login-container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card custom-login-container">
                     <div class="card-header">{{ __('Prijava') }}</div>
 
                     <div class="card-body">
@@ -12,7 +12,7 @@
 
                             <div class="form-group row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-mail') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Elektronski naslov') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -28,7 +28,7 @@
 
                             <div class="form-group row">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Geslo') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"

@@ -19,6 +19,8 @@ Route::middleware(['ownerMiddleware'])->group(function () {
     Route::get('/zaposleni', 'adminController@usersIndex');
     Route::get('/uredi-zaposleni/{userID}', 'adminController@editUserIndex');
     Route::post('/editUserExe', 'adminController@editUserExe');
+
+    Route::get('getDescription', 'adminController@getDescription');
 });
 
 
@@ -58,6 +60,7 @@ Route::get('/spremeni-pozicijo/{direction}/{drinkID}/{categoryID}', 'menuControl
 
 
 
+Route::get('/blez', 'testController@blez');
 
 
 //drinks

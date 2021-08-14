@@ -13378,10 +13378,24 @@ body {
   color: white;
 }
 
+.nav-closed #sidebar-items {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 7s linear;
+}
+
 .type-description {
-  min-height: 200px;
+  min-height: 100px;
   background-color: #e9ecef;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+#description-container {
+  color: dimgray;
 }
 
 #drinks-index-container {
@@ -13701,4 +13715,16 @@ nav {
   #login-button {
     width: 100% !important;
   }
+}
+@media only screen and (max-width: 720px) {
+  .custom-user-card,
+.custom-login-container {
+    width: 76%;
+    margin-right: 12%;
+    margin-left: 12%;
+    margin-top: 5%;
+  }
+}
+.fullwidth {
+  width: 100%;
 }

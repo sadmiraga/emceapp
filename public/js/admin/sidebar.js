@@ -2,6 +2,7 @@ let menuButton = document.querySelector(".button-menu");
 let container = document.querySelector(".container");
 let pageContent = document.querySelector(".page-content");
 let responsiveBreakpoint = 991;
+let sidebarElements = document.getElementById("sidebar-items");
 
 if (window.innerWidth <= responsiveBreakpoint) {
   container.classList.add("nav-closed");

@@ -184,3 +184,11 @@ body {
 .sidebar-menu-item-icon {
     color: white;
 }
+
+//prevent background icons
+.nav-closed #sidebar-items {
+    //display: none !important;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 7s linear;
+}

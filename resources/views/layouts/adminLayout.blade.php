@@ -19,6 +19,11 @@
     <script src="{{ asset('js/admin/alert.js') }}" defer></script>
     @yield('js')
 
+    <!-- JQUERY -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -61,7 +66,7 @@
         </div>
         <div class="main">
             <div class="sidebar">
-                <ul>
+                <ul id="sidebar-items">
 
                     <li class="sidebar-menu-item">
                         <a href="/meni">
