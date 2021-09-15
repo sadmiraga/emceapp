@@ -8,6 +8,12 @@
             <input id="myInput" class="form-control" type="text" placeholder="Search..">
         </div>
 
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
+
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
@@ -65,7 +71,6 @@
                 });
             });
         });
-
     </script>
 
 @endsection

@@ -46,6 +46,12 @@
         </div>
 
 
+        <div class="menu-cover-container">
+            <img src="https://cdn-az.allevents.in/events4/banners/255f7286e9352497c6525d38c7f583412588cd0400256a074474d6944218e439-rimg-w720-h274-gmir.jpg?v=1630178196"
+                class="menu-cover-image">
+        </div>
+
+
         <nav class="vertical-align-middle scroll">
 
             @foreach ($drinkCategories as $drinkCategory)
@@ -54,7 +60,8 @@
                     <li class="nav-item active-nav-item"><a
                             href="/{{ $drinkCategory->id }}">{{ $drinkCategory->categoryName }}</a></li>
                 @else
-                    <li class="nav-item"><a href="/{{ $drinkCategory->id }}">{{ $drinkCategory->categoryName }}</a>
+                    <li class="nav-item"><a
+                            href="/{{ $drinkCategory->id }}">{{ $drinkCategory->categoryName }}</a>
                     </li>
                 @endif
 
@@ -62,6 +69,8 @@
             @endforeach
         </nav>
     </div>
+
+
 
     <div class="menu-body">
 

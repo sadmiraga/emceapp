@@ -13622,7 +13622,6 @@ header {
   background-color: #e31318;
   border-bottom: 0px;
   color: white;
-  border-radius: 35px 35px 0px 0px;
 }
 
 .nav-item:hover {
@@ -13675,8 +13674,6 @@ nav {
 
 .menu-drink {
   width: 80%;
-  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
   padding: 10px;
   margin-right: 10%;
   margin-left: 10%;
@@ -13685,10 +13682,26 @@ nav {
   justify-content: space-between;
   padding-right: 5%;
   padding-left: 5%;
+  border-bottom: 1px solid lightgray;
 }
 
 .menu-drink:nth-of-type(1) {
   margin-top: 0% !important;
+}
+
+.menu-cover-container {
+  max-width: 100% !important;
+  max-height: 200px !important;
+}
+
+.menu-cover-image {
+  max-width: 100%;
+  min-width: 100%;
+  height: 200px;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background-color: #b30f13;
 }
 
 #register-form {
@@ -13727,4 +13740,25 @@ nav {
 }
 .fullwidth {
   width: 100%;
+}
+
+.custom-login-container .card-header {
+  background-color: #e7404d;
+  color: white;
+}
+
+#login-button {
+  background-color: white;
+  color: #e7404d;
+  border: 1px solid #e7404d;
+}
+
+#register-redirect a {
+  color: #e7404d;
+}
+
+/* change focus color */
+.form-control:focus {
+  border-color: #e7404d;
+  box-shadow: 0 0 0 0.2rem rgba(231, 64, 77, 0.25);
 }

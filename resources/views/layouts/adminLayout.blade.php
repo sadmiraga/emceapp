@@ -111,6 +111,15 @@
                         </a>
                     </li>
 
+
+                    <li class="sidebar-menu-item">
+                        <a href="/odjava">
+
+                            <i class="fa fa-sign-out" style="color:white;"></i>
+                            <span class="sidebar-menu-item-text">Odjava</span>
+                        </a>
+                    </li>
+
                 </ul>
             </div>
             <div class="page-content">

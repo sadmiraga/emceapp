@@ -46,6 +46,6 @@ class adminController extends Controller
         $user->type_id = $request->input('type_id');
         $user->save();
 
-        return redirect('/zaposleni')->with('messsage', 'Uspešno ste premenili tip zaposlenega');
+        return redirect('/zaposleni')->with('message', 'Uspešno ste premenili tip zaposlenega');
     }
 }

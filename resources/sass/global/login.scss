@@ -1,0 +1,23 @@
+.custom-login-container
+.card-header{ 
+    background-color: #e7404d;
+    color: white;
+}
+
+#login-button{ 
+    background-color: white;
+    color: #e7404d;
+    border: 1px solid #e7404d;
+}
+
+
+#register-redirect 
+a{ 
+    color: #e7404d;
+}
+
+/* change focus color */ 
+.form-control:focus{ 
+    border-color: #e7404d;
+    box-shadow: 0 0 0 0.2rem rgb(231 64 77 / 25%);
+}

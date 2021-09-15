@@ -40,6 +40,8 @@ class menuController extends Controller
 
         $drinkCategories = drinkCategory::all();
 
+
+
         return view('admin.menu.privateIndex')->with('drinks', $drinks)->with('drinkCategories', $drinkCategories);
     }
 
