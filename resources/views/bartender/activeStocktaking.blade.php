@@ -24,6 +24,9 @@
 
         <!-- SEARCH -->
         <div class="input-group mb-3">
+
+            <!-- reset -->
+            <button onclick="location.href='/aktivni-popis'" class="btn btn-warning"><i class="fa fa-close"></i></button>
             <input type="text" id="search-input-active-stocktaking" class="form-control">
 
             <div class="input-group-append">
@@ -31,19 +34,8 @@
             </div>
         </div>
 
-        <!-- success message -->
-        @if (session()->has('successMessage'))
-            <div style="text-align:center;" class="alert alert-success">
-                {{ session()->get('successMessage') }}
-            </div>
-        @endif
-
-        <!-- error message -->
-        @if (session()->has('errorMessage'))
-            <div style="text-align:center;" class="alert alert-danger">
-                {{ session()->get('errorMessage') }}
-            </div>
-        @endif
+        <!-- ALERT MESSAGES -->
+        <x-alert-component />
 
 
         <div class="drinks-container">
