@@ -13762,3 +13762,52 @@ nav {
   border-color: #e7404d;
   box-shadow: 0 0 0 0.2rem rgba(231, 64, 77, 0.25);
 }
+
+#footer {
+  background: #8f0c0f;
+  bottom: 0 !important;
+  width: 100%;
+  margin-top: auto;
+  margin-top: 50px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.social-media-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: white !important;
+}
+
+.social-media-container i {
+  font-size: 26px;
+}
+
+#adminitracija {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  color: white;
+  background-color: #e31318;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding: 1px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.social-media-container {
+  padding-top: 10px;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.menu-body {
+  position: relative;
+}

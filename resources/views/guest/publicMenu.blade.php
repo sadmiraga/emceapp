@@ -42,7 +42,7 @@
 
     <div class="menu-header-container">
         <div class="menu-header">
-            <img id="menu-logo" src="/images/logos/emceLogo.jpg" alt="emce plac">
+            <img onclick="location.href='/'" id="menu-logo" src="/images/logos/emceLogo.jpg" alt="emce plac">
         </div>
 
 
@@ -86,9 +86,77 @@
 
             </div>
         @endforeach
+
+        @foreach ($drinks as $drink)
+            <div class="menu-drink">
+                <div class="drink-name">
+                    {{ $drink->name }}
+                </div>
+
+                <div class="drink-price">
+                    {{ $drink->price . '€' }}
+                </div>
+
+            </div>
+        @endforeach
+
+        @foreach ($drinks as $drink)
+            <div class="menu-drink">
+                <div class="drink-name">
+                    {{ $drink->name }}
+                </div>
+
+                <div class="drink-price">
+                    {{ $drink->price . '€' }}
+                </div>
+
+            </div>
+        @endforeach
+
+        @foreach ($drinks as $drink)
+            <div class="menu-drink">
+                <div class="drink-name">
+                    {{ $drink->name }}
+                </div>
+
+                <div class="drink-price">
+                    {{ $drink->price . '€' }}
+                </div>
+
+            </div>
+        @endforeach
+
+        @foreach ($drinks as $drink)
+            <div class="menu-drink">
+                <div class="drink-name">
+                    {{ $drink->name }}
+                </div>
+
+                <div class="drink-price">
+                    {{ $drink->price . '€' }}
+                </div>
+
+            </div>
+        @endforeach
+
+        @foreach ($drinks as $drink)
+            <div class="menu-drink">
+                <div class="drink-name">
+                    {{ $drink->name }}
+                </div>
+
+                <div class="drink-price">
+                    {{ $drink->price . '€' }}
+                </div>
+
+            </div>
+        @endforeach
+
+
+
     </div>
 
-
+    <x-Footer />
 
 </body>
 
