@@ -17,6 +17,9 @@
     <script src="{{ asset('js/admin/sidebar.js') }}" defer></script>
     <script src="{{ asset('js/admin/drinks.js') }}" defer></script>
     <script src="{{ asset('js/admin/alert.js') }}" defer></script>
+    <script src="{{ asset('js/admin/activeStocktaking.js') }}" defer></script>
+    <script src="{{ asset('js/admin/countedStocktaking.js') }}" defer></script>
+
     @yield('js')
 
     <!-- JQUERY -->

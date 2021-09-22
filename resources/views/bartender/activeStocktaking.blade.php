@@ -1,6 +1,15 @@
 @extends('layouts.adminLayout')
 
 
+<script>
+    function activeStocktakingSearch() {
+        var query = document.getElementById("search-input-active-stocktaking").value;
+
+        window.location.href = "/active-stocktaking-search/" + query;
+    }
+</script>
+
+
 @section('content')
 
 
@@ -14,8 +23,11 @@
 
 
         <!-- SEARCH -->
-        <div class="input-group mb-3"> <input type="text" class="form-control">
-            <div class="input-group-append"><button class="btn btn-primary"><i class="fa fa-search"></i></button>
+        <div class="input-group mb-3">
+            <input type="text" id="search-input-active-stocktaking" class="form-control">
+
+            <div class="input-group-append">
+                <button onclick="activeStocktakingSearch()" class="btn btn-primary"><i class="fa fa-search"></i></button>
             </div>
         </div>
 
@@ -32,38 +44,6 @@
                 {{ session()->get('errorMessage') }}
             </div>
         @endif
-
-
-        <script>
-            function submitQuantity(drinkID) {
-                //var quantityValue
-
-                var inputName = "quantity-" + drinkID;
-                var quantityValue = document.getElementById(inputName).value;
-
-                if (!quantityValue) {
-                    alert("nema vrijednosti");
-                } else {
-                    var link = 'add-quantity/' + drinkID + '/' + quantityValue;
-                    window.location.href = link;
-                }
-            }
-
-
-            function submitWeight(drinkID) {
-                var inputName = "weight-" + drinkID;
-                var weightValue = document.getElementById(inputName).value;
-
-                if (!weightValue) {
-                    alert("nema vrijednosti");
-                } else {
-                    var link = 'add-weight/' + drinkID + '/' + weightValue;
-                    window.location.href = link;
-                }
-
-            }
-        </script>
-
 
 
         <div class="drinks-container">

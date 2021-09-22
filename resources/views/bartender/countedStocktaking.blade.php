@@ -1,51 +1,40 @@
 @extends('layouts.adminLayout')
 
+<script>
+    function countedStocktakingSearch() {
+        var query = document.getElementById("search-input-counted-stocktaking").value;
+
+        window.location.href = "/counted-stocktaking-search/" + query;
+    }
+</script>
 
 @section('content')
 
 
+    <!-- SEARCH -->
+    <div class="input-group mb-3">
+        <input type="text" id="search-input-counted-stocktaking" class="form-control">
 
-
-
-
-    <div class="input-group mb-3"> <input type="text" class="form-control">
-        <div class="input-group-append"><button class="btn btn-primary"><i class="fa fa-search"></i></button>
+        <div class="input-group-append">
+            <button onclick="countedStocktakingSearch()" class="btn btn-primary"><i class="fa fa-search"></i></button>
         </div>
     </div>
 
+    <!-- success message -->
+    @if (session()->has('successMessage'))
+        <div style="text-align:center;" class="alert alert-success">
+            {{ session()->get('successMessage') }}
+        </div>
+    @endif
+
+    <!-- error message -->
+    @if (session()->has('errorMessage'))
+        <div style="text-align:center;" class="alert alert-danger">
+            {{ session()->get('errorMessage') }}
+        </div>
+    @endif
+
     <button class="btn btn-success">Oddaj popis</button>
-
-    <script>
-        function submitQuantity(drinkID) {
-            //var quantityValue
-
-            var inputName = "quantity-" + drinkID;
-            var quantityValue = document.getElementById(inputName).value;
-
-            if (!quantityValue) {
-                alert("nema vrijednosti");
-            } else {
-                var link = 'additional-add-quantity/' + drinkID + '/' + quantityValue;
-                window.location.href = link;
-            }
-        }
-
-
-        function submitWeight(drinkID) {
-            var inputName = "weight-" + drinkID;
-            var weightValue = document.getElementById(inputName).value;
-
-            if (!weightValue) {
-                alert("nema vrijednosti");
-            } else {
-                var link = 'additional-add-weight/' + drinkID + '/' + weightValue;
-                window.location.href = link;
-            }
-
-        }
-    </script>
-
-
 
     <div class="drinks-container">
 

@@ -35,15 +35,18 @@ Route::middleware(['ownerMiddleware'])->group(function () {
 
 Route::middleware(['bartenderMiddleware'])->group(function () {
 
-    //stocklistings
-    Route::get('/aktivni-popis', 'inventoryController@index');
     Route::get('/zacni-popis', 'inventoryController@createStocktaking');
 
-    Route::get('/prestete-pijace', 'inventoryController@countedStocktaking');
-
+    //ACTIVE STOCKTAKING
+    Route::get('/aktivni-popis', 'inventoryController@index');
+    Route::get('/active-stocktaking-search/{query}', 'inventoryController@searchActiveStocktaking');
 
     Route::get('/add-quantity/{drinkID}/{quantity}', 'inventoryController@addQuantity');
     Route::get('/add-weight/{drinkID}/{weight}', 'inventoryController@addWeight');
+
+    //COUNTED STOCKTAKING
+    Route::get('/prestete-pijace', 'inventoryController@countedStocktaking');
+    Route::get('/counted-stocktaking-search/{query}', 'inventoryController@searchCountedStocktaking');
 
     Route::get('/additional-add-quantity/{drinkID}/{quantity}', 'inventoryController@additionalAddQuantity');
     Route::get('/additional-add-weight/{drinkID}/{weight}', 'inventoryController@additionalAddWeight');
@@ -55,8 +58,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-//global 
-Route::get('/odjava','basicController@odjava');
+//global
+Route::get('/odjava', 'basicController@odjava');
 
 
 //meni

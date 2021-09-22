@@ -126,10 +126,60 @@ class inventoryController extends Controller
     }
 
 
+    // search on active stocktaking
+    public function searchActiveStocktaking($query)
+    {
+        //check if bartender have opened stocktaking
+        $openedCount = stocktaking::where('user_id', Auth::id())->where('completed', false)->count();
+
+        if ($openedCount == 1) {
+            $started_bool = true;
+        } else {
+            $started_bool = false;
+        }
+
+        //search for drinks that are left on stocktaking
+        $drinks  = DB::table('stocktakings')->join('drink_stocktakings', function ($join) {
+            $join->on('stocktakings.id', '=', 'drink_stocktakings.stocktaking_id');
+        })->join('drinks', function ($join) {
+            $join->on('drinks.id', '=', 'drink_stocktakings.drink_id');
+        })
+            ->select('drinks.id as drinkID', 'drinks.name as drinkName', 'drink_stocktakings.quantity as drinkQuantity', 'drink_stocktakings.weight as drinkWeight', 'stocktakings.id as stocktakingID')
+            //->selectRaw('`drinks`.`id` as uid')
+            ->where('drinks.name', 'LIKE', "%$query%")
+            ->where(function ($execute) {
+                $execute->where('drink_stocktakings.quantity', '=', null)
+                    ->orWhere('drink_stocktakings.weight', '=', null);
+            })
+            ->get();
+
+        return view('bartender.activeStocktaking')->with('started_bool', $started_bool)->with('drinks', $drinks);
+    }
+
+
+    //SEARCH COUNTED STOCKTAKING
+    public function searchCountedStocktaking($query)
+    {
+        $drinks  = DB::table('stocktakings')->join('drink_stocktakings', function ($join) {
+            $join->on('stocktakings.id', '=', 'drink_stocktakings.stocktaking_id');
+        })->join('drinks', function ($join) {
+            $join->on('drinks.id', '=', 'drink_stocktakings.drink_id');
+        })
+            ->select('drinks.id as drinkID', 'drinks.name as drinkName', 'drink_stocktakings.quantity as drinkQuantity', 'drink_stocktakings.weight as drinkWeight', 'stocktakings.id as stocktakingID')
+            ->where('drinks.name', 'LIKE', "%$query%")
+            ->where(function ($execute) {
+                $execute->where('drink_stocktakings.quantity', '!=', null)
+                    ->orWhere('drink_stocktakings.weight', '!=', 0);
+            })
+            //->where('drink_stocktakings.quantity', '!=', null)
+            //->orWhere('drink_stocktakings.weight', '!=', 0)
+            ->get();
+        return view('bartender.countedStocktaking')->with('drinks', $drinks);
+    }
+
+    // Create stocktaking
     public function createStocktaking()
     {
-
-
         $current_timestamp = Carbon::now()->timestamp;
 
         $stocktacking = new stocktaking();
@@ -160,8 +210,6 @@ class inventoryController extends Controller
 
             $drink_stocktaking->save();
         }
-
-
 
         return redirect('/aktivni-popis');
     }
