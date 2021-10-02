@@ -49,6 +49,8 @@ class inventoryController extends Controller
     //prikazi prestete pijace
     public function countedStocktaking()
     {
+
+
         $drinks  = DB::table('stocktakings')->join('drink_stocktakings', function ($join) {
             $join->on('stocktakings.id', '=', 'drink_stocktakings.stocktaking_id');
         })->join('drinks', function ($join) {
@@ -56,8 +58,11 @@ class inventoryController extends Controller
         })
             ->select('drinks.id as drinkID', 'drinks.name as drinkName', 'drink_stocktakings.quantity as drinkQuantity', 'drink_stocktakings.weight as drinkWeight', 'stocktakings.id as stocktakingID')
             //->selectRaw('`drinks`.`id` as uid')
-            ->where('drink_stocktakings.quantity', '!=', null)
-            ->orWhere('drink_stocktakings.weight', '!=', 0)
+            ->where(function ($execute) {
+                $execute->where('drink_stocktakings.quantity', '!=', null)
+                    ->orWhere('drink_stocktakings.weight', '!=', 0);
+            })
+            ->where('stocktakings.completed', '=', false)
             ->get();
 
 
@@ -102,10 +107,14 @@ class inventoryController extends Controller
     //display stocktaking INDEX
     public function index()
     {
+
+
         //check if bartender have opened stocktaking
         $openedCount = stocktaking::where('user_id', Auth::id())->where('completed', false)->count();
 
         if ($openedCount == 1) {
+
+            //stocktaking is opened
             $started_bool = true;
         } else {
             $started_bool = false;
@@ -118,9 +127,14 @@ class inventoryController extends Controller
         })
             ->select('drinks.id as drinkID', 'drinks.name as drinkName', 'drink_stocktakings.quantity as drinkQuantity', 'drink_stocktakings.weight as drinkWeight', 'stocktakings.id as stocktakingID')
             //->selectRaw('`drinks`.`id` as uid')
-            ->where('drink_stocktakings.quantity', '=', null)
-            ->orWhere('drink_stocktakings.weight', '=', null)
+            ->where(function ($execute) {
+                $execute->where('drink_stocktakings.quantity', '=', null)
+                    ->orWhere('drink_stocktakings.weight', '=', null);
+            })
+            ->where('stocktakings.completed', '=', false)
             ->get();
+
+
 
         return view('bartender.activeStocktaking')->with('started_bool', $started_bool)->with('drinks', $drinks);
     }

@@ -26,7 +26,10 @@
     <!-- ALERT MESSAGES -->
     <x-alert-component />
 
-    <button onclick="location.href='/oddaj-popis'" class="btn btn-success">Oddaj popis</button>
+    <div class="row confirm-cancel-container">
+        <button onclick="location.href='/oddaj-popis'" class="btn btn-danger">Preklici popis</button>
+        <button onclick="location.href='/oddaj-popis'" class="btn btn-success">Oddaj popis</button>
+    </div>
 
     <div class="drinks-container">
 

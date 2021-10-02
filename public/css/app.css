@@ -13155,7 +13155,7 @@ body {
     margin-right: 0;
   }
 }
-#admin-header {
+.admin-header {
   color: white;
   text-transform: uppercase;
   margin: auto;
@@ -13833,6 +13833,13 @@ body {
   position: relative;
 }
 
+.confirm-cancel-container {
+  justify-content: space-between;
+  padding-right: 4%;
+  padding-left: 4%;
+  margin-bottom: 10%;
+}
+
 .unclickable {
   opacity: 0.4;
 }
@@ -13852,4 +13859,33 @@ body {
 
 .formated-timestamp {
   margin-bottom: 0px;
+}
+
+.search-function {
+  width: 80%;
+}
+
+.function-button {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.stocktaking-functions-table {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
+.fa-print,
+.fa-exchange-alt {
+  background-color: lightgray;
+  padding: 10px;
+  border-radius: 100%;
+}
+
+.fa-print:hover,
+.fa-exchange-alt:hover {
+  background-color: #b6b6b6;
+  cursor: pointer;
 }

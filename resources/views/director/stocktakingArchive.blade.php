@@ -10,7 +10,7 @@
                     <th scope="col">Kelner</th>
                     <th scope="col">Zacetek</th>
                     <th scope="col">Konec</th>
-                    <th scope="col"></th>
+                    <th scope="col">#</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,15 +23,20 @@
                         <tr class="stocktaking-table-row unclickable">
                     @endif
 
+                    <!-- bartender -->
                     <td>{{ $stocktaking->firstName . ' ' . $stocktaking->lastName }}</td>
 
+                    <!-- stocktaking start -->
                     <td class="stocktaking-timestamp">
                         <p class="formated-timestamp">{{ date('d-m-Y', strtotime($stocktaking->start)) }}</p>
                         <p class="formated-timestamp">{{ date('H:i', strtotime($stocktaking->start)) }} </p>
-
                     </td>
 
-                    <td>{{ $stocktaking->end }}</td>
+                    <!-- stocktaking  end -->
+                    <td>
+                        <p class="formated-timestamp">{{ date('d-m-Y', strtotime($stocktaking->end)) }}</p>
+                        <p class="formated-timestamp">{{ date('H:i', strtotime($stocktaking->end)) }} </p>
+                    </td>
 
                     <!-- completed  -->
                     @if ($stocktaking->completed == true)
