@@ -23,7 +23,6 @@
     @yield('js')
 
     <!-- JQUERY -->
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
@@ -31,6 +30,10 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1d264cf014.js" crossorigin="anonymous"></script>
+
+
+
 
     <!-- ajax and shit -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -79,7 +82,7 @@
                     </li>
 
                     <li class="sidebar-menu-item">
-                        <a href="#"><i class="fa fa-list-ul" style="color:white;"></i>
+                        <a href="/arhiv-popisov"><i class="fa fa-list-ul" style="color:white;"></i>
                             <span class="sidebar-menu-item-text">Popisi (Arhiv)</span>
                         </a>
                     </li>

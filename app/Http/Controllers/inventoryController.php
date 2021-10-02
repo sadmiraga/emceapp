@@ -213,4 +213,33 @@ class inventoryController extends Controller
 
         return redirect('/aktivni-popis');
     }
+
+    public function completeStocktakingCheck()
+    {
+        $drinks  = DB::table('stocktakings')->join('drink_stocktakings', function ($join) {
+            $join->on('stocktakings.id', '=', 'drink_stocktakings.stocktaking_id');
+        })->join('drinks', function ($join) {
+            $join->on('drinks.id', '=', 'drink_stocktakings.drink_id');
+        })
+            ->select('drinks.name as drinkName')
+            ->where('drink_stocktakings.quantity', '=', null)
+            ->orWhere('drink_stocktakings.weight', '=', null)
+            ->get();
+
+        return view('bartender.completeStocktaking')->with('drinks', $drinks);
+    }
+
+    public function confirmStocktaking()
+    {
+        //get current timestamp
+        $current_timestamp = Carbon::now()->timestamp;
+
+        //close stocktaking
+        $activeStocktaking = stocktaking::where('user_id', '=', Auth::id())->where('completed', false)->first();
+        $activeStocktaking->end = $current_timestamp;
+        $activeStocktaking->completed = true;
+        $activeStocktaking->save();
+
+        return redirect('/aktivni-popis')->with('successMessage', 'Uspešno ste oddali popis');
+    }
 }

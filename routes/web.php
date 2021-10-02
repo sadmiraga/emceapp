@@ -30,11 +30,16 @@ Route::middleware(['ownerMiddleware'])->group(function () {
     Route::post('/uredi-pijaco-exe', 'drinksController@editDrinkExe');
     Route::get('/dodaj-pijaco', 'drinksController@newDrink');
     Route::post('/dodaj-pijaco-exe', 'drinksController@newDrinkExe');
+
+
+    //stocktakings
+    Route::get('/ogled-popisa/{stocktakingID}', 'archiveController@inspectStocktaking');
 });
 
 
 Route::middleware(['bartenderMiddleware'])->group(function () {
 
+    //CREATE STOCKTAKING
     Route::get('/zacni-popis', 'inventoryController@createStocktaking');
 
     //ACTIVE STOCKTAKING
@@ -50,8 +55,15 @@ Route::middleware(['bartenderMiddleware'])->group(function () {
 
     Route::get('/additional-add-quantity/{drinkID}/{quantity}', 'inventoryController@additionalAddQuantity');
     Route::get('/additional-add-weight/{drinkID}/{weight}', 'inventoryController@additionalAddWeight');
+
+    //COMPLETE STOCKTAKING
+    Route::get('/oddaj-popis', 'inventoryController@completeStocktakingCheck');
+    Route::get('/potrdi-popis', 'inventoryController@confirmStocktaking');
 });
 
+
+//ARCHIVE STOCKTAKINGS
+Route::get('/arhiv-popisov', 'archiveController@stocktakingIndex');
 
 
 Auth::routes();

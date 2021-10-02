@@ -49,3 +49,24 @@
     display: flex;
     justify-content: center;
 }
+
+/* complete stocktaking */
+.complete-stocktaking-header{
+    font-size: 14px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.stocktaking-actions{
+    display: flex;
+    justify-content: space-between;
+}
+
+.complete-stocktaking-card{
+    width: 100%;
+    margin-top: 10%;
+}
+
+.stocktaking-uncounted{
+    font-weight: 100;
+}

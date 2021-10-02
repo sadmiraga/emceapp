@@ -13550,6 +13550,27 @@ body {
   justify-content: center;
 }
 
+/* complete stocktaking */
+.complete-stocktaking-header {
+  font-size: 14px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.stocktaking-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.complete-stocktaking-card {
+  width: 100%;
+  margin-top: 10%;
+}
+
+.stocktaking-uncounted {
+  font-weight: 100;
+}
+
 #menu-logo {
   width: 150px;
   max-width: 150px;
@@ -13810,4 +13831,25 @@ body {
 
 .menu-body {
   position: relative;
+}
+
+.unclickable {
+  opacity: 0.4;
+}
+
+.unclickable:hover {
+  cursor: default !important;
+}
+
+.stocktaking-table-row:hover {
+  cursor: pointer;
+}
+
+.stocktaking-timestamp {
+  display: flex;
+  flex-direction: column;
+}
+
+.formated-timestamp {
+  margin-bottom: 0px;
 }

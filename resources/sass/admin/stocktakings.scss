@@ -1,0 +1,20 @@
+.unclickable{
+    opacity: 0.4;
+}
+
+.unclickable:hover{
+    cursor:default !important;
+}
+
+.stocktaking-table-row:hover{
+    cursor:pointer;
+}
+
+.stocktaking-timestamp{
+    display: flex;
+    flex-direction: column;
+}
+
+.formated-timestamp{
+    margin-bottom: 0px;
+}
