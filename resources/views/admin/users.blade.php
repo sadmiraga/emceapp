@@ -1,7 +1,7 @@
 @extends('layouts.adminLayout')
 
 @section('admin-title')
-    {{ 'Zaposleni' }}
+    <h2 class="admin-header">Zaposleni</h2>
 @endsection
 
 @section('content')

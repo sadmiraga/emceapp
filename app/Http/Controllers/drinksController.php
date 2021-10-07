@@ -89,6 +89,13 @@ class drinksController extends Controller
         return redirect('/pijace')->with('message', 'Uspesno ste dodali novo pijaco');
     }
 
+    public function deleteDrink($drinkID)
+    {
+        $drink = drink::findOrFail($drinkID);
+        $drink->delete();
+        return redirect()->back()->with('successMessage', 'Uspesno ste izbrisali pijaco');
+    }
+
 
     //display edit drink
     public function editDrink($drinkID)

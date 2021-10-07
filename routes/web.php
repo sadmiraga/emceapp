@@ -26,7 +26,7 @@ Route::middleware(['ownerMiddleware'])->group(function () {
     //drinks
     Route::get('/pijace', 'drinksController@index');
     Route::get('/uredi-pijaco/{drinkID}', 'drinksController@editDrink');
-    Route::get('/izbrisi-pijaco/{drinkID}', 'drinkController@deleteDrink');
+    Route::get('/izbrisi-pijaco/{drinkID}', 'drinksController@deleteDrink');
     Route::post('/uredi-pijaco-exe', 'drinksController@editDrinkExe');
     Route::get('/dodaj-pijaco', 'drinksController@newDrink');
     Route::post('/dodaj-pijaco-exe', 'drinksController@newDrinkExe');
