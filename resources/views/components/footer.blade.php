@@ -2,9 +2,9 @@
 <footer id="footer">
 
     <div class="social-media-container">
-        <i class="fa fa-facebook"></i>
-        <i class="fa fa-instagram"></i>
-        <i class="fa fa-twitter"></i>
+        <a href="www.facebook.com"><i class="social-icons fa fa-facebook"></i></a>
+        <a href="www.facebook.com"><i class="social-icons fa fa-instagram"></i></a>
+        <a href="www.facebook.com"><i class="social-icons fa fa-twitter"></i></a>
     </div>
 
     <a id="adminitracija" href="/aktivni-popis">Administracija</a>

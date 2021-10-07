@@ -83,6 +83,8 @@
                         </a>
                     </li>
 
+
+
                     <li class="sidebar-menu-item">
                         <a href="/arhiv-popisov"><i class="fa fa-list-ul" style="color:white;"></i>
                             <span class="sidebar-menu-item-text">Popisi (Arhiv)</span>
@@ -93,6 +95,12 @@
                         <a href="/zaposleni">
                             <i class="fa fa-users" style="color:white;"></i>
                             <span class="sidebar-menu-item-text">Zaposleni</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-menu-item">
+                        <a href="/dogodki"><i class="far fa-calendar-alt" style="color:white;"></i>
+                            <span class="sidebar-menu-item-text">Dogodki</span>
                         </a>
                     </li>
 

@@ -78,6 +78,11 @@ Route::get('/odjava', 'basicController@odjava');
 Route::get('/meni', 'menuController@privateIndex');
 Route::get('/', 'menuController@publicIndex');
 
+//events
+Route::get('/dogodki', 'eventsController@index');
+Route::get('/dodaj-dogodek', 'eventsController@addEvent');
+Route::post('/dodaj-dogodek-exe', 'eventsController@addEventExe');
+
 Route::get('/{drinkCategoryID}', 'menuController@getMenuDrinks');
 
 Route::get('/uredi-meni/{categoryID}', 'menuController@editMenu');
