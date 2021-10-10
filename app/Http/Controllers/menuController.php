@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\drink;
 use App\Models\drinkCategory;
 use App\Models\menu;
+use App\Models\Event;
 
 class menuController extends Controller
 {
@@ -16,7 +17,9 @@ class menuController extends Controller
         $drinks = drink::all();
         $drinkCategories = drinkCategory::all();
 
-        return view('guest.publicMenu')->with('drinks', $drinks)->with('drinkCategories', $drinkCategories)->with('selectedCategoryID', null);
+        $events = Event::orderBy('eventDate', 'asc')->orderBy('eventTime', 'asc')->get();
+
+        return view('guest.publicMenu')->with('drinks', $drinks)->with('drinkCategories', $drinkCategories)->with('selectedCategoryID', null)->with('events', $events);
     }
 
     public function getMenuDrinks($drinkCategoryID)

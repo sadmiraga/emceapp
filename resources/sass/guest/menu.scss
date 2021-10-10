@@ -152,9 +152,10 @@ nav {
 .menu-cover-container {
     max-width: 100% !important;
     max-height: 200px !important;
-
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
 }
-
 
 
 .menu-cover-image {
@@ -165,3 +166,30 @@ nav {
     object-fit: contain;
     background-color: #b30f13;
 }
+
+
+.carousel{
+    position: inherit !important;
+}
+
+
+/* codepen code */
+
+.carousel {
+    background: #EEE;
+  }
+
+  .carousel-cell {
+    width: 100%;
+    height: 200px;
+    margin-right: 10px;
+    background: #8C8;
+    border-radius: 5px;
+    background-size: cover;
+  }
+
+  .flickity-button{
+    display:none;
+  }
+
+

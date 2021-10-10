@@ -19,6 +19,11 @@
     @yield('js')
 
 
+    <!-- FLICKITY -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -46,10 +51,18 @@
         </div>
 
 
-        <div class="menu-cover-container">
-            <img src="https://cdn-az.allevents.in/events4/banners/255f7286e9352497c6525d38c7f583412588cd0400256a074474d6944218e439-rimg-w720-h274-gmir.jpg?v=1630178196"
-                class="menu-cover-image">
+
+        <div class="carousel" data-flickity='{ "autoPlay": true,"pageDots": false }'>
+            @foreach ($events as $event)
+                <div class="carousel-cell"
+                    style='background-image: url("/images/events/{{ $event->eventPicture }}");'>
+
+                </div>
+            @endforeach
         </div>
+
+
+
 
 
         <nav class="vertical-align-middle scroll">
