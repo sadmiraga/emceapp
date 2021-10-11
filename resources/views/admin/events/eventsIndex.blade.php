@@ -46,8 +46,13 @@
                     </div>
 
                     <div class="row confirm-cancel-container" style="margin-bottom:0px;">
-                        <button class="btn btn-primary">Uredi</button>
-                        <button class="btn btn-danger">Izbrisi</button>
+                        <button class="btn btn-primary" onclick="location.href='/uredi-dogodek/{{ $event->id }}'">
+                            Uredi
+                        </button>
+
+                        <button onclick="location.href='/izbrisi-dogodek/{{ $event->id }}'" class="btn btn-danger">
+                            Izbrisi
+                        </button>
                     </div>
 
                     <!-- DESCRIPTION -->

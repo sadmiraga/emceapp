@@ -1,7 +1,8 @@
 @extends("layouts.adminLayout")
 
 @section('admin-title')
-    {{ 'Uredi ' . $categoryName . ' meni' }}
+    <h2 class="admin-header">{{ 'Uredi ' . $categoryName . ' meni' }}</h2>
+
 @endsection
 
 @section('content')
@@ -20,7 +21,6 @@
                         </div>
 
                         <span class="menu-drink-name">{{ $drink->name }}</span>
-
 
 
                         <div onclick="location.href='/spremeni-pozicijo/up/{{ $drink->drink_id }}/{{ $drink->category_id }}'"

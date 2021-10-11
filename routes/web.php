@@ -82,6 +82,12 @@ Route::get('/', 'menuController@publicIndex');
 Route::get('/dogodki', 'eventsController@index');
 Route::get('/dodaj-dogodek', 'eventsController@addEvent');
 Route::post('/dodaj-dogodek-exe', 'eventsController@addEventExe');
+Route::get('/izbrisi-dogodek/{eventID}', 'eventsController@deleteEvent');
+Route::get('/uredi-dogodek/{eventID}', 'eventsController@editEventIndex');
+Route::post('/uredi-dogodek-exe', 'eventsController@editEventExe');
+
+
+
 
 Route::get('/{drinkCategoryID}', 'menuController@getMenuDrinks');
 
