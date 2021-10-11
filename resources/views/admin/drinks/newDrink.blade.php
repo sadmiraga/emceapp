@@ -1,7 +1,7 @@
 @extends("layouts.adminLayout")
 
 @section('admin-title')
-    {{ 'Dodaj pijaco' }}
+    <h2 class="admin-header">{{ 'Dodaj pijaco' }}</h2>
 @endsection
 
 @section('content')
@@ -69,6 +69,16 @@
 
             </div>
 
+
+
+            <!-- DISPLAY ON MENU -->
+            <div class="form-group">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" checked id="displayOnMenuCheckbox" name="displayOnMenuCheckbox"
+                        class="custom-control-input">
+                    <label class="custom-control-label" for="displayOnMenuCheckbox">Prikazi na meniju</label>
+                </div>
+            </div>
 
 
 

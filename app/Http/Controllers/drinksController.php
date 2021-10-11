@@ -39,6 +39,8 @@ class drinksController extends Controller
     public function newDrinkExe(Request $request)
     {
 
+
+
         $drink = new drink();
         $drink->name = $request->input('drinkName');
         $drink->price = $request->input('drinkPrice');
@@ -55,6 +57,7 @@ class drinksController extends Controller
         $drink->save();
 
 
+        //if($request->input('displayOnMenuCheckbox'))
         //ADD DRINK TO MENU
         $menu = new menu();
         $menu->drink_id = $drink->id;

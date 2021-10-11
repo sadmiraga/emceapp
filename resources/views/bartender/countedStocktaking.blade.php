@@ -26,6 +26,9 @@
     <!-- ALERT MESSAGES -->
     <x-alert-component />
 
+    <!-- back to top button -->
+    <a id="back-to-top-button"></a>
+
     <div class="row confirm-cancel-container">
         <button onclick="location.href='/oddaj-popis'" class="btn btn-danger">Preklici popis</button>
         <button onclick="location.href='/oddaj-popis'" class="btn btn-success">Oddaj popis</button>

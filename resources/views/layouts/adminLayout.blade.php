@@ -20,7 +20,7 @@
     <script src="{{ asset('js/admin/activeStocktaking.js') }}" defer></script>
     <script src="{{ asset('js/admin/countedStocktaking.js') }}" defer></script>
     <script src="{{ asset('js/admin/archiveStocktaking.js') }}" defer></script>
-
+    <script src="{{ asset('js/admin/topTop.js') }}" defer></script>
 
     @yield('js')
 

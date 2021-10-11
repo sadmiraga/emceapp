@@ -37,6 +37,8 @@
         <!-- ALERT MESSAGES -->
         <x-alert-component />
 
+        <!-- back to top button -->
+        <a id="back-to-top-button"></a>
 
         <div class="drinks-container">
 
@@ -94,6 +96,8 @@
             @endforeach
 
         </div>
+
+
 
     @endif
 @endsection
