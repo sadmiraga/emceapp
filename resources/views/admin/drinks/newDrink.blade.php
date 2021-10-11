@@ -85,7 +85,7 @@
 
             <!-- SUBMIT -->
             <div class="form-group">
-                <button class="btn btn-success" type="submit">Shrani</button>
+                <button class="btn btn-success" type="submit">Dodaj</button>
             </div>
         </div>
         {!! Form::close() !!}

@@ -21,6 +21,7 @@ class CreateDrinksTable extends Migration
             $table->boolean('weightable');
             $table->double('packing_weight')->nullable();
 
+            $table->boolean('display_on_menu')->default(1);
 
             $table->unsignedInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('drink_categories')->onDelete('cascade');

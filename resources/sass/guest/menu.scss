@@ -176,16 +176,17 @@ nav {
 /* codepen code */
 
 .carousel {
-    background: #EEE;
+    background: #b30f13;
   }
 
   .carousel-cell {
     width: 100%;
     height: 200px;
     margin-right: 10px;
-    background: #8C8;
-    border-radius: 5px;
-    background-size: cover;
+    background: #b30f13;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   .flickity-button{

@@ -57,36 +57,48 @@ class drinksController extends Controller
         $drink->save();
 
 
-        //if($request->input('displayOnMenuCheckbox'))
-        //ADD DRINK TO MENU
-        $menu = new menu();
-        $menu->drink_id = $drink->id;
+        /* add to menu position */
+        if ($request->input('displayOnMenuCheckbox') != null) {
 
-        //get last position
-        $categoryPositions = DB::table('menus')->join('drinks', function ($join) {
-            $join->on('drinks.id', '=', 'menus.drink_id');
-        })
-            ->join('drink_categories', function ($join) {
-                $join->on('drink_categories.id', '=', '.drinks.category_id');
-            })->select('menus.category_position')
-            ->where('drinks.category_id', '=', $drink->category_id)
-            ->get();
+            //ADD DRINK TO MENU
+            $menu = new menu();
+            $menu->drink_id = $drink->id;
 
-        $json = json_decode($categoryPositions, true);
+            //get last position
+            $categoryPositions = DB::table('menus')->join('drinks', function ($join) {
+                $join->on('drinks.id', '=', 'menus.drink_id');
+            })
+                ->join('drink_categories', function ($join) {
+                    $join->on('drink_categories.id', '=', '.drinks.category_id');
+                })->select('menus.category_position')
+                ->where('drinks.category_id', '=', $drink->category_id)
+                ->get();
+
+            $json = json_decode($categoryPositions, true);
 
 
-        //check if drink is first at a list
-        if (count((array)$json) == 0) {
-            $max_value = 0;
-        } else {
-            $max_value = max($json);
+            //check if drink is first at a list
+            if (count((array)$json) == 0) {
+                $max_value = 0;
+            } else {
+                $max_value = max($json);
+            }
+
+            $lastPosition = $max_value['category_position'];
+
+            $menu->category_position = $lastPosition + 1;
+            $menu->save();
         }
 
 
-        $lastPosition = $max_value['category_position'];
+        /* check if drink is available for menu display */
+        if ($request->input('displayOnMenuCheckbox') != null) {
+            $drink->display_on_menu = true;
+        } else {
+            $drink->display_on_menu = false;
+        }
 
-        $menu->category_position = $lastPosition + 1;
-        $menu->save();
+        $drink->save();
 
 
         return redirect('/pijace')->with('message', 'Uspesno ste dodali novo pijaco');
