@@ -7,6 +7,14 @@ use App\Models\Event;
 
 class eventsController extends Controller
 {
+
+    //display single event for guest
+    public function guestDisplayEvent($eventID)
+    {
+        $event = Event::findOrFail($eventID);
+        return view('guest.viewEvent')->with('event', $event);
+    }
+
     public function index()
     {
         $events = Event::orderBy('eventDate', 'ASC')->get();

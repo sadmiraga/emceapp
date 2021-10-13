@@ -37,7 +37,7 @@ class menuController extends Controller
 
         //$drinks = drink::where('category_id', $drinkCategoryID)->get();
         $drinkCategories = drinkCategory::all();
-        $events = Event::orderBy('eventDate', 'asc')->orderBy('eventTime', 'asc')->get();
+        $events = Event::orderBy('eventDate', 'desc')->orderBy('eventTime', 'asc')->get();
         return view('guest.publicMenu')->with('drinks', $drinks)->with('drinkCategories', $drinkCategories)->with('selectedCategoryID', $drinkCategoryID)->with('events', $events);
     }
 

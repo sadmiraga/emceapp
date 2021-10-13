@@ -14027,3 +14027,22 @@ body {
 .event-card {
   margin-bottom: 5%;
 }
+
+/* display event to guest */
+.event-header-image {
+  background-size: cover;
+  height: 300px;
+}
+
+.event-heading {
+  border-bottom: 1px solid lightgray;
+  width: 80%;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.guest-event-info-row {
+  margin-bottom: 3%;
+}

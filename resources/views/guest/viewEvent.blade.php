@@ -49,60 +49,44 @@
         <div class="menu-header">
             <img onclick="location.href='/'" id="menu-logo" src="/images/logos/emceLogo.jpg" alt="emce plac">
         </div>
-
-
-
-        <!-- events slider -->
-        <div class="carousel" data-flickity='{ "autoPlay": true,"pageDots": false }'>
-            @foreach ($events as $event)
-                <div onclick="location.href='/dogodek/{{ $event->id }}'" class="carousel-cell"
-                    style='background-image: url("/images/events/{{ $event->eventPicture }}");'>
-
-                </div>
-            @endforeach
-        </div>
-
-
-        <!-- drink categories navigation -->
-        <nav class="vertical-align-middle scroll">
-
-            @foreach ($drinkCategories as $drinkCategory)
-
-                @if ($drinkCategory->id == $selectedCategoryID)
-                    <li class="nav-item active-nav-item"><a
-                            href="/{{ $drinkCategory->id }}">{{ $drinkCategory->categoryName }}</a></li>
-                @else
-                    <li class="nav-item"><a
-                            href="/{{ $drinkCategory->id }}">{{ $drinkCategory->categoryName }}</a>
-                    </li>
-                @endif
-
-
-            @endforeach
-        </nav>
-
-
     </div>
 
 
 
-    <div class="menu-body">
 
-        @foreach ($drinks as $drink)
-            <div class="menu-drink">
-                <div class="drink-name">
-                    {{ $drink->name }}
-                </div>
-
-                <div class="drink-price">
-                    {{ $drink->price . '€' }}
-                </div>
-
-            </div>
-        @endforeach
-
-
+    <div class="event-header-image" style='background-image: url("/images/events/{{ $event->eventPicture }}");'>
     </div>
+
+
+    <div class="centered-header event-heading">
+        <p>{{ $event->eventName }}</p>
+    </div>
+
+    <!-- DATE -->
+    <div class="row event-row-info guest-event-info-row">
+        <p><i class="far fa-calendar-alt"></i> Datum</p>
+        <p>{{ $event->eventDate }}</p>
+    </div>
+
+    <!-- TIME -->
+    <div class="row event-row-info guest-event-info-row">
+        <p><i class="far fa-clock"></i> Čas</p>
+        <p>{{ $event->eventTime }}</p>
+    </div>
+
+    <!-- LOCATION -->
+    <div class="row event-row-info guest-event-info-row">
+        <p><i class="fas fa-map-marker-alt"></i> Lokacija</p>
+        <p>{{ $event->eventLocation }}</p>
+    </div>
+
+    <!-- TICKET -->
+    <div class="row event-row-info guest-event-info-row">
+        <p><i class="fas fa-ticket-alt"></i> Vstopnina</p>
+        <p>{{ $event->ticketPrice . '€' }}</p>
+    </div>
+
+
 
     <x-Footer />
 
