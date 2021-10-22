@@ -59,7 +59,7 @@
                             </div>
 
                             <div class="drink-button">
-                                <button onclick="submitQuantity({{ $drink->drinkID }})"
+                                <button onclick="submitAdditionalQuantity({{ $drink->drinkID }})"
                                     class="btn btn-success">Dodaj</button>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                             </div>
 
                             <div class="drink-button">
-                                <button onclick="submitWeight({{ $drink->drinkID }})"
+                                <button onclick="submitAdditionalWeight({{ $drink->drinkID }})"
                                     class="btn btn-success">Dodaj</button>
                             </div>
 

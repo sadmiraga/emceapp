@@ -26,6 +26,13 @@ class inventoryController extends Controller
         $drink = drink::findOrFail($drinkID);
 
         $drink_stocktaking = drink_stocktaking::where('stocktaking_id', $activeStocktaking->id)->where('drink_id', $drinkID)->first();
+
+        //preveri ce je embelaza tezja vnesene teze pijace
+        if ($drink->packing_weight > $drink_stocktaking->weight) {
+            return redirect()->back()->with('errorMessage', 'Greska pri vnosu, vnesena teza je manjsa od teze embelaze');
+        }
+
+
         $drink_stocktaking->weight += ($weight - $drink->packing_weight);
         $drink_stocktaking->save();
 
@@ -93,7 +100,7 @@ class inventoryController extends Controller
         $drink_stocktaking = drink_stocktaking::where('stocktaking_id', $activeStocktaking->id)->where('drink_id', $drinkID)->first();
 
         //preveri ce je embelaza tezja vnesene teze pijace
-        if ($drink->packing_weight > $drink_stocktaking->weight) {
+        if ($drink->packing_weight > $weight) {
             return redirect()->back()->with('errorMessage', 'Greska pri vnosu, vnesena teza je manjsa od teze embelaze');
         }
 

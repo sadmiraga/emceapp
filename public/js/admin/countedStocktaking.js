@@ -1,4 +1,4 @@
-function submitQuantity(drinkID) {
+function submitAdditionalQuantity(drinkID) {
     //var quantityValue
 
     var inputName = "quantity-" + drinkID;
@@ -13,7 +13,7 @@ function submitQuantity(drinkID) {
 }
 
 
-function submitWeight(drinkID) {
+function submitAdditionalWeight(drinkID) {
     var inputName = "weight-" + drinkID;
     var weightValue = document.getElementById(inputName).value;
 
