@@ -11,7 +11,7 @@
     <div class="stocktaking-functions-table">
 
         <div class="function-button">
-            <i class="fas fa-print"></i>
+            <i onclick="location.href='/tiskaj-popis/{{ $stocktaking->id }}'" class="fas fa-print"></i>
         </div>
 
         <div class="function-button">

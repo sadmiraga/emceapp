@@ -34,6 +34,8 @@ Route::middleware(['ownerMiddleware'])->group(function () {
 
     //stocktakings
     Route::get('/ogled-popisa/{stocktakingID}', 'archiveController@inspectStocktaking');
+
+    Route::get('/tiskaj-popis/{stocktakingID}', 'archiveController@printStocktaking');
 });
 
 
