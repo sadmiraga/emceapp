@@ -91,6 +91,12 @@ Route::get('/uredi-dogodek/{eventID}', 'eventsController@editEventIndex');
 Route::post('/uredi-dogodek-exe', 'eventsController@editEventExe');
 
 
+//tournaments
+Route::get('/turniri', 'tournamentController@index');
+Route::get('/dodaj-turnir', 'tournamentController@new');
+Route::post('/dodaj-turnir-exe', 'tournamentController@newExe');
+
+
 
 
 Route::get('/{drinkCategoryID}', 'menuController@getMenuDrinks');

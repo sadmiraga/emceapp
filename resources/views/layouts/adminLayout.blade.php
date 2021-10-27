@@ -105,6 +105,12 @@
                     </li>
 
                     <li class="sidebar-menu-item">
+                        <a href="/turniri"><i class="fas fa-futbol" style="color:white;"></i>
+                            <span class="sidebar-menu-item-text">Turniri</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-menu-item">
                         <a href="/pijace">
                             <i class="fa fa-coffee" style="color:white;"></i>
                             <span class="sidebar-menu-item-text">Pijače</span>
