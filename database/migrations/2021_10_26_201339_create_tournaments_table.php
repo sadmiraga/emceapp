@@ -21,6 +21,8 @@ class CreateTournamentsTable extends Migration
             $table->string('prizeImage');
             $table->date('startDate');
             $table->time('startTime');
+            $table->boolean('opened_applications')->default(true);
+            $table->boolean('completed')->default(false);
         });
     }
 

@@ -14,3 +14,60 @@
 .tournament-name:hover{
     text-decoration: none;
 }
+
+
+/* public pages */
+.tournament-application-container{
+    width: 80%;
+    border-radius: 10px;
+    border: 1px solid #AAAAAA;
+    border-radius: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding:10%;
+}
+
+.custom-tournament-input{
+    background-color:#f8fafc;
+    margin-bottom: 10%;
+    border: 1px solid #AAAAAA;
+}
+
+
+.custom-tournament-input::placeholder{
+    color: #737373;
+    text-align: center !important;
+}
+
+
+.thin-header{
+    text-align: center;
+    margin-top:10%;
+    margin-bottom: 10%;
+    font-weight: 200;
+    color:#727272;
+    text-transform: uppercase;
+}
+
+.tournament-button{
+    width: 100%;
+}
+
+.prize-container{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    display:flex;
+    justify-content: center;
+}
+
+.prize-image{
+    width: 150px;
+}
+
+.below-header{
+    font-weight: 100;
+    font-size:14px;
+    text-align: center;
+    margin-top:5px;
+}

@@ -95,7 +95,12 @@ Route::post('/uredi-dogodek-exe', 'eventsController@editEventExe');
 Route::get('/turniri', 'tournamentController@index');
 Route::get('/dodaj-turnir', 'tournamentController@new');
 Route::post('/dodaj-turnir-exe', 'tournamentController@newExe');
+Route::get('/turnir/{tournamentID}', 'tournamentController@singleTournament');
 
+
+//teams
+Route::get('/prijava-ekipe/{tournamentID}', 'teamController@newTeam');
+Route::post('/prijavi-ekipi-exe', 'teamController@newTeamExe');
 
 
 

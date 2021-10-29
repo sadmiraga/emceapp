@@ -54,6 +54,16 @@
 
         <!-- events slider -->
         <div class="carousel" data-flickity='{ "autoPlay": true,"pageDots": false }'>
+
+            <!-- tournaments -->
+            @foreach ($tournaments as $tournament)
+                <div onclick="location.href='/prijava-ekipe/{{ $tournament->id }}'" class="carousel-cell"
+                    style='background-image: url("/images/tournaments/covers/{{ $tournament->image }}");'>
+
+                </div>
+            @endforeach
+
+            <!-- events -->
             @foreach ($events as $event)
                 <div onclick="location.href='/dogodek/{{ $event->id }}'" class="carousel-cell"
                     style='background-image: url("/images/events/{{ $event->eventPicture }}");'>

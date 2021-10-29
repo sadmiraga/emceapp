@@ -21,6 +21,14 @@ class tournamentController extends Controller
         return view('admin.tournaments.newTournament');
     }
 
+    public function singleTournament($tournamentID)
+    {
+
+        $tournament = tournament::findOrFail($tournamentID);
+
+        return view('admin.tournaments.tournamentDetails')->with('tournament', $tournament);
+    }
+
     public function newExe(Request $request)
     {
 

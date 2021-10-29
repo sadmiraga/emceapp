@@ -8,6 +8,7 @@ use App\Models\drink;
 use App\Models\drinkCategory;
 use App\Models\menu;
 use App\Models\Event;
+use App\Models\tournament;
 
 class menuController extends Controller
 {
@@ -18,8 +19,12 @@ class menuController extends Controller
         $drinkCategories = drinkCategory::all();
 
         $events = Event::orderBy('eventDate', 'asc')->orderBy('eventDate', 'asc')->get();
+        $tournaments = tournament::where('opened_applications', true)->get();
 
-        return view('guest.publicMenu')->with('drinks', $drinks)->with('drinkCategories', $drinkCategories)->with('selectedCategoryID', null)->with('events', $events);
+        return view('guest.publicMenu')->with('drinks', $drinks)
+            ->with('drinkCategories', $drinkCategories)
+            ->with('selectedCategoryID', null)->with('events', $events)
+            ->with('tournaments', $tournaments);
     }
 
     public function getMenuDrinks($drinkCategoryID)
@@ -38,7 +43,13 @@ class menuController extends Controller
         //$drinks = drink::where('category_id', $drinkCategoryID)->get();
         $drinkCategories = drinkCategory::all();
         $events = Event::orderBy('eventDate', 'desc')->orderBy('eventTime', 'asc')->get();
-        return view('guest.publicMenu')->with('drinks', $drinks)->with('drinkCategories', $drinkCategories)->with('selectedCategoryID', $drinkCategoryID)->with('events', $events);
+        $tournaments = tournament::where('opened_applications', true)->get();
+
+        return view('guest.publicMenu')->with('drinks', $drinks)
+            ->with('drinkCategories', $drinkCategories)
+            ->with('selectedCategoryID', $drinkCategoryID)
+            ->with('events', $events)
+            ->with('tournaments', $tournaments);
     }
 
 
