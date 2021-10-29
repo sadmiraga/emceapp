@@ -1,0 +1,37 @@
+.team-card{
+    margin-bottom: 5% !important;
+    background-color: #f8fafc;
+}
+
+.teamName{
+    text-decoration: none !important;
+    text-transform: uppercase;
+    color: #5d5d5d;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.tournament-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+
+.btn-link:hover{
+    text-decoration: none !important;
+}
+
+.team-element{
+    text-align: center;
+    font-weight: 200;
+}
+
+
+
+.delete-team-button{
+    border:1px solid #AAAAAA;
+    color:#5d5d5d;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}

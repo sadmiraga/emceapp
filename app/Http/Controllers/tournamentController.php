@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\tournament;
+use App\Models\team;
 
 class tournamentController extends Controller
 {
@@ -23,10 +24,12 @@ class tournamentController extends Controller
 
     public function singleTournament($tournamentID)
     {
-
         $tournament = tournament::findOrFail($tournamentID);
+        $teams = team::where('tournament_id', $tournamentID)->get();
 
-        return view('admin.tournaments.tournamentDetails')->with('tournament', $tournament);
+        return view('admin.tournaments.tournamentDetails')
+            ->with('tournament', $tournament)
+            ->with('teams', $teams);
     }
 
     public function newExe(Request $request)
