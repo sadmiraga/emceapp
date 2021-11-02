@@ -39,12 +39,13 @@ class drinksController extends Controller
     public function newDrinkExe(Request $request)
     {
 
-
-
         $drink = new drink();
         $drink->name = $request->input('drinkName');
         $drink->price = $request->input('drinkPrice');
         $drink->category_id = $request->input('category_id');
+        $drink->code = $request->input('drinkCode');
+        $drink->enme = $request->input('enme');
+        $drink->packing_size = $request->input('packingSize');
 
         if ($request->input('packingWeight') == null) {
             $drink->weightable = false;

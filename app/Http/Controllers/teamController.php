@@ -30,4 +30,11 @@ class teamController extends Controller
 
         return redirect()->back()->with('successMessage', 'Uspešno ste prijavili ekipo na turnir');
     }
+
+    public function deleteTeam($teamID)
+    {
+        $team = team::findOrFail($teamID);
+        $team->delete();
+        return redirect()->back()->with('successMessage', 'Uspešno ste odjavili ekipo sa turnirja');
+    }
 }

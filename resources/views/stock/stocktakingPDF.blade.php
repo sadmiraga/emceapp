@@ -13,6 +13,7 @@
         <th style="border-bottom: 1px solid #AAAAAA;border-right: 1px solid #AAAAAA;font-weight:normal;">Stevilo kosov
         </th>
         <th style="border-bottom: 1px solid #AAAAAA;font-weight:normal;">Ostatek</th>
+        <th style="border-bottom: 1px solid #AAAAAA;font-weight:normal;">Zaloga</th>
     </tr>
     @foreach ($stocktakingDrinks as $drink)
         <tr>
@@ -21,6 +22,26 @@
             <td style="text-align: center;border-bottom: 1px solid #AAAAAA;border-right: 1px solid #AAAAAA;">
                 {{ $drink->drinkQuantity }}</td>
             <td style="text-align: center;border-bottom: 1px solid #AAAAAA;">{{ $drink->drinkWeight }}</td>
+
+            <!-- KG -->
+            @if ($drink->enme == 'KG')
+                <td style="text-align: center;border-bottom: 1px solid #AAAAAA;">{{ $drink->drinkWeight . ' Kg' }}
+                </td>
+
+                <!-- Liter -->
+            @elseif ($drink->enme == 'LIT')
+                <td style="text-align: center;border-bottom: 1px solid #AAAAAA;">
+                    {{ $drink->drinkQuantity * $drink->packing_size + $drink->drinkWeight . ' L' }}</td>
+
+                <!-- Kosov -->
+            @elseif ($drink->enme == 'KOM')
+                <td style="text-align: center;border-bottom: 1px solid #AAAAAA;">
+                    {{ $drink->drinkQuantity . '  Kosov' }}</td>
+            @else
+                <td style="text-align: center;border-bottom: 1px solid #AAAAAA;"></td>
+            @endif
+
+
         </tr>
     @endforeach
 </table>

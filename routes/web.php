@@ -36,6 +36,9 @@ Route::middleware(['ownerMiddleware'])->group(function () {
     Route::get('/ogled-popisa/{stocktakingID}', 'archiveController@inspectStocktaking');
 
     Route::get('/tiskaj-popis/{stocktakingID}', 'archiveController@printStocktaking');
+    Route::get('/primerjaj-popis/{stocktakingID}', 'archiveController@compareStocktaking');
+
+    Route::post('/primerjaj-popis-exe', 'archiveController@compareStocktakingExe');
 });
 
 
@@ -101,6 +104,9 @@ Route::get('/turnir/{tournamentID}', 'tournamentController@singleTournament');
 //teams
 Route::get('/prijava-ekipe/{tournamentID}', 'teamController@newTeam');
 Route::post('/prijavi-ekipi-exe', 'teamController@newTeamExe');
+
+Route::get('/odjavi-ekipo/{teamID}', 'teamController@deleteTeam');
+Route::get('/zakljuci-prijave/{tournamentID}', 'tournamentController@closeApplication');
 
 
 

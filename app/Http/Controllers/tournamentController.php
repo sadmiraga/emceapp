@@ -10,6 +10,13 @@ use App\Models\team;
 class tournamentController extends Controller
 {
     //
+    public function closeApplication($tournamentID)
+    {
+        $tournament = tournament::findOrFail($tournamentID);
+        $tournament->opened_applications = false;
+        $tournament->save();
+        return redirect('/turnir/' . $tournamentID)->with('successMessage', 'Uspešno ste zakljucili prijave na turnir');
+    }
 
     public function index()
     {

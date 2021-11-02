@@ -23,6 +23,10 @@ class CreateDrinksTable extends Migration
 
             $table->boolean('display_on_menu')->default(1);
 
+            $table->string('code');
+            $table->string('enme');
+            $table->double('packing_size')->nullable();
+
             $table->unsignedInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('drink_categories')->onDelete('cascade');
 

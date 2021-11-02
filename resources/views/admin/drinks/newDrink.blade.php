@@ -27,6 +27,47 @@
                 </div>
             </div>
 
+            <!-- CODE -->
+            <div class="form-group">
+                <div class="form-input">
+                    <input required class="form-control" name="drinkCode" placeholder="Vnesite šifro pijače">
+                </div>
+            </div>
+
+            <!-- ENME -->
+            <div class="form-group">
+                <select class="form-control" onchange="packingSizeDisplay();" id="enme" name="enme"
+                    aria-label="Default select example">
+                    <option value="0" selected disabled>Merna enota</option>
+                    <option value="KG"> Kilogram </option>
+                    <option value="KOM"> Kos </option>
+                    <option value="LIT"> Liter </option>
+                </select>
+            </div>
+
+
+            <script>
+                function packingSizeDisplay() {
+                    var packingSize = document.getElementById("packingSize");
+                    var value = document.getElementById("enme").value;
+
+                    if (value == "LIT") {
+                        packingSize.style.display = "block";
+                        packingSize.required = true;
+                    } else {
+                        packingSize.style.display = "none";
+                        packingSize.required = false;
+                    }
+                }
+            </script>
+
+            <!-- PACKING SIZE -->
+            <div class="form-group">
+                <input required type="number" step=".1" name="packingSize" id="packingSize" class="form-control"
+                    placeholder="Vnesite velikost embelaže">
+            </div>
+
+
 
             <!-- DRINK PRICE -->
             <div class="input-group mb-3">

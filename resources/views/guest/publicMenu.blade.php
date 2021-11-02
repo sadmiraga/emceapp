@@ -45,72 +45,77 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <div class="menu-header-container">
-        <div class="menu-header">
-            <img onclick="location.href='/'" id="menu-logo" src="/images/logos/emceLogo.jpg" alt="emce plac">
-        </div>
 
+    <div class="public-content">
 
-
-        <!-- events slider -->
-        <div class="carousel" data-flickity='{ "autoPlay": true,"pageDots": false }'>
-
-            <!-- tournaments -->
-            @foreach ($tournaments as $tournament)
-                <div onclick="location.href='/prijava-ekipe/{{ $tournament->id }}'" class="carousel-cell"
-                    style='background-image: url("/images/tournaments/covers/{{ $tournament->image }}");'>
-
-                </div>
-            @endforeach
-
-            <!-- events -->
-            @foreach ($events as $event)
-                <div onclick="location.href='/dogodek/{{ $event->id }}'" class="carousel-cell"
-                    style='background-image: url("/images/events/{{ $event->eventPicture }}");'>
-
-                </div>
-            @endforeach
-        </div>
-
-
-        <!-- drink categories navigation -->
-        <nav class="vertical-align-middle scroll">
-
-            @foreach ($drinkCategories as $drinkCategory)
-
-                @if ($drinkCategory->id == $selectedCategoryID)
-                    <li class="nav-item active-nav-item"><a
-                            href="/{{ $drinkCategory->id }}">{{ $drinkCategory->categoryName }}</a></li>
-                @else
-                    <li class="nav-item"><a
-                            href="/{{ $drinkCategory->id }}">{{ $drinkCategory->categoryName }}</a>
-                    </li>
-                @endif
-
-
-            @endforeach
-        </nav>
-
-
-    </div>
-
-
-
-    <div class="menu-body">
-
-        @foreach ($drinks as $drink)
-            <div class="menu-drink">
-                <div class="drink-name">
-                    {{ $drink->name }}
-                </div>
-
-                <div class="drink-price">
-                    {{ $drink->price . '€' }}
-                </div>
-
+        <div class="menu-header-container">
+            <div class="menu-header">
+                <img onclick="location.href='/'" id="menu-logo" src="/images/logos/emceLogo.jpg" alt="emce plac">
             </div>
-        @endforeach
 
+
+
+            <!-- events slider -->
+            <div class="carousel" data-flickity='{ "autoPlay": true,"pageDots": false }'>
+
+                <!-- tournaments -->
+                @foreach ($tournaments as $tournament)
+                    <div onclick="location.href='/prijava-ekipe/{{ $tournament->id }}'" class="carousel-cell"
+                        style='background-image: url("/images/tournaments/covers/{{ $tournament->image }}");'>
+
+                    </div>
+                @endforeach
+
+                <!-- events -->
+                @foreach ($events as $event)
+                    <div onclick="location.href='/dogodek/{{ $event->id }}'" class="carousel-cell"
+                        style='background-image: url("/images/events/{{ $event->eventPicture }}");'>
+
+                    </div>
+                @endforeach
+            </div>
+
+
+            <!-- drink categories navigation -->
+            <nav class="vertical-align-middle scroll">
+
+                @foreach ($drinkCategories as $drinkCategory)
+
+                    @if ($drinkCategory->id == $selectedCategoryID)
+                        <li class="nav-item active-nav-item"><a
+                                href="/{{ $drinkCategory->id }}">{{ $drinkCategory->categoryName }}</a></li>
+                    @else
+                        <li class="nav-item"><a
+                                href="/{{ $drinkCategory->id }}">{{ $drinkCategory->categoryName }}</a>
+                        </li>
+                    @endif
+
+
+                @endforeach
+            </nav>
+
+
+        </div>
+
+
+
+        <div class="menu-body">
+
+            @foreach ($drinks as $drink)
+                <div class="menu-drink">
+                    <div class="drink-name">
+                        {{ $drink->name }}
+                    </div>
+
+                    <div class="drink-price">
+                        {{ $drink->price . '€' }}
+                    </div>
+
+                </div>
+            @endforeach
+
+
+        </div>
 
     </div>
 

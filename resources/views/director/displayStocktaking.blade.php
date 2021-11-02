@@ -15,7 +15,7 @@
         </div>
 
         <div class="function-button">
-            <i class="fas fa-exchange-alt"></i>
+            <i onclick="location.href='/primerjaj-popis/{{ $stocktaking->id }}'" class="fas fa-exchange-alt"></i>
         </div>
 
         <div class="form-group search-function">
@@ -31,6 +31,7 @@
             <th scope="col">Ime pijace</th>
             <th scope="col">Stevilo kosov</th>
             <th scope="col">Ostatek</th>
+            <th scope="col">Zaloga</th>
         </tr>
 
         @foreach ($stocktakingDrinks as $drink)
@@ -38,12 +39,18 @@
                 <td>{{ $drink->drinkName }}</td>
                 <td>{{ $drink->drinkQuantity }}</td>
                 <td>{{ $drink->drinkWeight }}</td>
+
+                @if ($drink->enme == 'LIT')
+                    <td>{{ $drink->drinkQuantity * $drink->packing_size + $drink->drinkWeight . ' l' }}</td>
+                @elseif($drink->enme == 'KG')
+                    <td>{{ $drink->drinkWeight . '  Kg' }}</td>
+                @else
+                    <td>{{ $drink->drinkQuantity . '  Kosov' }}</td>
+                @endif
             </tr>
         @endforeach
 
     </table>
-
-
 
 
 

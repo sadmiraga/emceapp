@@ -4,10 +4,13 @@
 
 
     <div class="tournament-buttons">
-        <button class="btn btn-warning">Zakljuci prijave</button>
+        <button onclick="location.href='/zakljuci-prijave/{{ $tournament->id }}'" class="btn btn-warning">Zakljuci
+            prijave</button>
         <button class="btn btn-danger">Zakljuci turnir</button>
     </div>
 
+    <!-- ALERT MESSAGES -->
+    <x-alert-component />
 
     <h2 class="thin-header">Ekipe</h2>
 
@@ -34,8 +37,10 @@
                         <p class="team-element">{{ $team->teamName }}</p>
                         <p class="team-element">{{ $team->member_1 }}</p>
                         <p class="team-element">{{ $team->member_2 }}</p>
-                        <p class="team-element">{{ $team->contact_number }}</p>
-                        <button class="btn delete-team-button">Izbrisi Ekipo</button>
+                        <p class="team-element"><a
+                                href="tel:{{ $team->contact_number }}">{{ $team->contact_number }}</a></p>
+                        <button onclick="location.href=' /odjavi-ekipo/{{ $team->id }}'"
+                            class="btn delete-team-button">Odjavi Ekipo</button>
                     </div>
                 </div>
             </div>

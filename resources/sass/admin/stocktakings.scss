@@ -55,3 +55,40 @@
     background-color: #b6b6b6;
     cursor:pointer;
 }
+
+.compare-container
+form{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #AAAAAA;
+    border-radius: 20px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.compare-container
+label{
+    color: #5d5d5d;
+    font-size: 1.3em;
+    font-weight: 100;
+}
+
+.thin-heading{
+    color: #737373;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 0px !important;
+}
+
+.compare-container
+.btn{
+    margin-top: 20px;
+    font-weight: 300;
+}

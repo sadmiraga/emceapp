@@ -55,3 +55,12 @@ body{
 a{
     color:white;
 }
+
+
+
+//stick footer to bottom
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
