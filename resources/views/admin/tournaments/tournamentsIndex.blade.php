@@ -16,7 +16,7 @@
         @foreach ($tournaments as $tournament)
 
             <div onclick="location.href='/turnir/{{ $tournament->id }}'" class="card event-card" id="tournamentCard"
-                style="width: 50%;">
+                style="width: 80%;">
                 <img class="card-img-top" src="/images/tournaments/covers/{{ $tournament->image }}" alt="Card image cap">
                 <div class="card-body">
 

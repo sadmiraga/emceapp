@@ -16,7 +16,7 @@
 
 
         {!! Form::open(['url' => '/dodaj-pijaco-exe', 'method' => 'post', 'enctype' => 'multipart/form-data']) !!}
-        <!-- body -->
+        @csrf
         <div class="card-body">
 
 

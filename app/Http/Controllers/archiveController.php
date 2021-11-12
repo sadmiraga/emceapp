@@ -9,6 +9,8 @@ use App\Models\stocktaking;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
+use App\Models\compareModel;
+
 use \stdClass;
 
 //use Dompdf\Dompdf;
@@ -81,7 +83,8 @@ class archiveController extends Controller
         $user = User::findOrFail($stocktaking->user_id);
 
         return view('director.compareStocktaking')->with('stocktaking', $stocktaking)
-            ->with('user', $user);
+            ->with('user', $user)
+            ->with('odstupanja',null);
     }
 
     public function compareStocktakingExe(Request $request)
@@ -107,9 +110,6 @@ class archiveController extends Controller
         $excel->load($path);
         $collection = $excel->getCollection();
 
-        //try to find this
-        //100238
-
         //get heading of compare
         //$compareDate = $collection[2];
 
@@ -121,14 +121,15 @@ class archiveController extends Controller
         // 1 = Šifra
         // 9 = Zaloga
 
-
-
-
         //$comparingVariable = new stdClass;
 
         //return $collection[4];
 
         //return $collection[4][1];
+
+        $odstupanja = [];
+
+        //odstupanja|    name, enme, value
 
 
         foreach ($stocktakingDrinks as $drink) {
@@ -137,29 +138,30 @@ class archiveController extends Controller
                 //find product by code
                 if ($collection[$i][1] == $drink->code) {
 
-                    $app = app();
-                    $comparingVariable = $app->make('stdClass');
-                    $comparingVariable->id = $drink->id;
-                    $comparingVariable->name = $drink->name;
+                    array_push($odstupanja,$drink->drinkName);
 
                     //KOM
                     if ($drink->enme == "KOM") {
-                        $comparingVariable->value = $collection[$i][9] - $drink->drinkQuantity;
+                        array_push($odstupanja,"KOM",(int)$collection[$i][9] - $drink->drinkQuantity);
 
                         //KG
                     } else if ($drink->enme == "KG") {
-                        $comparingVariable->value = $collection[$i][9] - $drink->drinkWeight;
+                        array_push($odstupanja,"KG",(float)$collection[$i][9] - $drink->drinkWeight);
 
                         //LIT
                     } else if ($drink->enme == "LIT") {
-                        $comparingVariable->value = $collection[$i][9] - ($drink->drinkQuantity * $drink->packing_size + $drink->drinkWeight);
+                        array_push($odstupanja,"LIT",(float)$collection[$i][9] - ($drink->drinkQuantity * $drink->packing_size + $drink->drinkWeight));
                     }
-                    var_dump($comparingVariable);
+                    
                     break;
                 }
             }
         }
 
-        return $comparingVariable;
+        $stocktaking = stocktaking::findOrFail($request->input('stocktakingID'));
+
+        return view('director.displayComparedStocktaking')->with('odstupanja',$odstupanja);
     }
+
+
 }

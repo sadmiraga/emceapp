@@ -12,7 +12,7 @@
 
 
         {!! Form::open(['url' => '/uredi-pijaco-exe', 'method' => 'post', 'enctype' => 'multipart/form-data']) !!}
-        <!-- body -->
+        @csrf
         <div class="card-body">
 
             <input type="hidden" value="{{ $drink->id }}" name="drinkID">

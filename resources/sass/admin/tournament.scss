@@ -71,3 +71,17 @@
     text-align: center;
     margin-top:5px;
 }
+
+
+@media only screen and (min-width:650px){
+
+    #accordion{
+        width: 60%;
+        margin-right: 20%;
+        margin-left: 20%;
+    }
+    
+    .thin-header{
+        margin-bottom:20px;
+    }
+}

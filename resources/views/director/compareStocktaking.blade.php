@@ -7,7 +7,7 @@
 
     <div class="card-body compare-container">
         {!! Form::open(['url' => '/primerjaj-popis-exe', 'method' => 'post', 'enctype' => 'multipart/form-data']) !!}
-
+        @csrf
 
         <label>Izberite excel mapo iz programa</label>
         <input type="file" required name="excelFile">
@@ -19,5 +19,6 @@
 
         {!! Form::close() !!}
     </div>
+
 
 @endsection

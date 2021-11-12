@@ -57,6 +57,7 @@
         <div class="tournament-application-container">
 
             {!! Form::open(['url' => '/prijavi-ekipi-exe', 'method' => 'post', 'enctype' => 'multipart/form-data', 'files' => 'true']) !!}
+            @csrf
 
             <input class="form-control custom-tournament-input" placeholder="Naziv ekipe" name="teamName" required>
 

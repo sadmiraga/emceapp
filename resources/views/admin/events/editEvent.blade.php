@@ -13,7 +13,7 @@
 
 
         {!! Form::open(['url' => '/uredi-dogodek-exe', 'method' => 'post', 'enctype' => 'multipart/form-data', 'files' => 'true']) !!}
-        <!-- body -->
+        @csrf
         <div class="card-body">
 
             <input type="hidden" value="{{ $event->id }}" name="eventID">

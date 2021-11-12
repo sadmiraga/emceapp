@@ -13,7 +13,7 @@
 
 
         {!! Form::open(['url' => '/dodaj-dogodek-exe', 'method' => 'post', 'enctype' => 'multipart/form-data', 'files' => 'true']) !!}
-        <!-- body -->
+        @csrf
         <div class="card-body">
 
 

@@ -14,6 +14,7 @@
 
 
         {!! Form::open(['url' => '/editUserExe', 'method' => 'post', 'enctype' => 'multipart/form-data']) !!}
+        @csrf
         <!-- body -->
         <div class="card-body">
             <div class="form-group">

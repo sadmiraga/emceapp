@@ -92,3 +92,24 @@ label{
     margin-top: 20px;
     font-weight: 300;
 }
+
+//display compared stocktakings 
+.compared-stocktaking-container{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #5d5d5d;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    margin-top:100px;
+}
+
+.compared-stocktaking-row{
+    justify-content: center;
+    margin-left:0px !important;
+    margin-right:0px !important;
+}
+
+.compared-col{
+    width:33%;
+}

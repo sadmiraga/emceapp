@@ -37,8 +37,8 @@ Route::middleware(['ownerMiddleware'])->group(function () {
 
     Route::get('/tiskaj-popis/{stocktakingID}', 'archiveController@printStocktaking');
     Route::get('/primerjaj-popis/{stocktakingID}', 'archiveController@compareStocktaking');
-
     Route::post('/primerjaj-popis-exe', 'archiveController@compareStocktakingExe');
+
 });
 
 
