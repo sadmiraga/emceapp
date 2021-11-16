@@ -84,7 +84,7 @@ class archiveController extends Controller
 
         return view('director.compareStocktaking')->with('stocktaking', $stocktaking)
             ->with('user', $user)
-            ->with('odstupanja',null);
+            ->with('odstupanja', null);
     }
 
     public function compareStocktakingExe(Request $request)
@@ -138,21 +138,21 @@ class archiveController extends Controller
                 //find product by code
                 if ($collection[$i][1] == $drink->code) {
 
-                    array_push($odstupanja,$drink->drinkName);
+                    array_push($odstupanja, $drink->drinkName);
 
                     //KOM
                     if ($drink->enme == "KOM") {
-                        array_push($odstupanja,"KOM",(int)$collection[$i][9] - $drink->drinkQuantity);
+                        array_push($odstupanja, "KOM", (int)$collection[$i][9] - $drink->drinkQuantity);
 
                         //KG
                     } else if ($drink->enme == "KG") {
-                        array_push($odstupanja,"KG",(float)$collection[$i][9] - $drink->drinkWeight);
+                        array_push($odstupanja, "KG", (float)$collection[$i][9] - $drink->drinkWeight);
 
                         //LIT
                     } else if ($drink->enme == "LIT") {
-                        array_push($odstupanja,"LIT",(float)$collection[$i][9] - ($drink->drinkQuantity * $drink->packing_size + $drink->drinkWeight));
+                        array_push($odstupanja, "LIT", (float)$collection[$i][9] - ($drink->drinkQuantity * $drink->packing_size + $drink->drinkWeight));
                     }
-                    
+
                     break;
                 }
             }
@@ -160,8 +160,6 @@ class archiveController extends Controller
 
         $stocktaking = stocktaking::findOrFail($request->input('stocktakingID'));
 
-        return view('director.displayComparedStocktaking')->with('odstupanja',$odstupanja);
+        return view('director.displayComparedStocktaking')->with('odstupanja', $odstupanja);
     }
-
-
 }

@@ -40,6 +40,8 @@ Route::middleware(['direktorMiddleware'])->group(function () {
 
     //MENI
     Route::get('/meni', 'menuController@privateIndex');
+    Route::get('/uredi-meni/{categoryID}', 'menuController@editMenu');
+    Route::get('/spremeni-pozicijo/{direction}/{drinkID}/{categoryID}', 'menuController@changePosition');
 });
 
 
@@ -83,53 +85,25 @@ Route::middleware(['operativcMiddleware'])->group(function () {
     Route::get('/dodaj-turnir', 'tournamentController@new');
     Route::post('/dodaj-turnir-exe', 'tournamentController@newExe');
     Route::get('/turnir/{tournamentID}', 'tournamentController@singleTournament');
+
+    Route::get('/odjavi-ekipo/{teamID}', 'teamController@deleteTeam');
+    Route::get('/zakljuci-prijave/{tournamentID}', 'tournamentController@closeApplication');
 });
 
 
 //public routes
-Route::get('/odjava', 'basicController@odjava');
 Route::get('/', 'menuController@publicIndex');
+Route::get('/{drinkCategoryID}', 'menuController@getMenuDrinks');
 
-Auth::routes();
-
-
-
-//global
-
-
-
-//meni
-
-
-
+Route::get('/odjava', 'basicController@odjava');
 Route::get('/dogodek/{eventID}', 'eventsController@guestDisplayEvent');
-
-
-
-
-
 
 
 //teams
 Route::get('/prijava-ekipe/{tournamentID}', 'teamController@newTeam');
 Route::post('/prijavi-ekipi-exe', 'teamController@newTeamExe');
 
-Route::get('/odjavi-ekipo/{teamID}', 'teamController@deleteTeam');
-Route::get('/zakljuci-prijave/{tournamentID}', 'tournamentController@closeApplication');
+Auth::routes();
 
 
-
-Route::get('/{drinkCategoryID}', 'menuController@getMenuDrinks');
-
-Route::get('/uredi-meni/{categoryID}', 'menuController@editMenu');
-Route::get('/spremeni-pozicijo/{direction}/{drinkID}/{categoryID}', 'menuController@changePosition');
-
-
-
-Route::get('/blez', 'testController@blez');
-
-
-
-
-//popisi
 Route::get('/access-denied', 'basiController@accessDenied');
