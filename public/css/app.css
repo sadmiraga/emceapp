@@ -13844,6 +13844,18 @@ nav {
   margin-left: 10%;
 }
 
+.author {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: white;
+}
+
+.author a {
+  color: white;
+  text-decoration: underline;
+}
+
 .custom-login-container .card-header {
   background-color: #e7404d;
   color: white;

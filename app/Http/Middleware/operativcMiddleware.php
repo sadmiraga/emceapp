@@ -4,9 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 
-class ownerMiddleware
+class operativcMiddleware
 {
     /**
      * Handle an incoming request.
@@ -18,10 +19,11 @@ class ownerMiddleware
     public function handle(Request $request, Closure $next)
     {
         if ($user = Auth::user()) {
-            if (Auth::user()->type_id == 1) {
+
+            if (Auth::user()->type_id == 3) {
                 return $next($request);
             } else {
-                return redirect('/error-page');
+                return redirect('/access-denied');
             }
         } else {
             return redirect('/login');

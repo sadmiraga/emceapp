@@ -12,6 +12,8 @@
 
 @section('content')
 
+        <!-- ALERT MESSAGES -->
+        <x-alert-component />
 
     @if ($started_bool == false)
         <div class="custom-container" id="start-stocklisting">
@@ -34,8 +36,7 @@
             </div>
         </div>
 
-        <!-- ALERT MESSAGES -->
-        <x-alert-component />
+
 
         <!-- back to top button -->
         <a id="back-to-top-button"></a>

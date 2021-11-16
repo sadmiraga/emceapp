@@ -114,8 +114,6 @@ class inventoryController extends Controller
     //display stocktaking INDEX
     public function index()
     {
-
-
         //check if bartender have opened stocktaking
         $openedCount = stocktaking::where('user_id', Auth::id())->where('completed', false)->count();
 
@@ -235,6 +233,8 @@ class inventoryController extends Controller
         return redirect('/aktivni-popis');
     }
 
+
+    //NAPAKA
     public function completeStocktakingCheck()
     {
         $drinks  = DB::table('stocktakings')->join('drink_stocktakings', function ($join) {
@@ -243,8 +243,11 @@ class inventoryController extends Controller
             $join->on('drinks.id', '=', 'drink_stocktakings.drink_id');
         })
             ->select('drinks.name as drinkName')
-            ->where('drink_stocktakings.quantity', '=', null)
-            ->orWhere('drink_stocktakings.weight', '=', null)
+            ->where('stocktakings.completed', '=', false)
+            ->where(function ($execute) {
+                $execute->where('drink_stocktakings.quantity', '=', null)
+                    ->orWhere('drink_stocktakings.weight', '=', null);
+            })
             ->get();
 
         return view('bartender.completeStocktaking')->with('drinks', $drinks);
@@ -252,8 +255,9 @@ class inventoryController extends Controller
 
     public function confirmStocktaking()
     {
-        //get current timestamp
-        $current_timestamp = Carbon::now()->timestamp;
+
+
+        $current_timestamp =   Carbon::now('Europe/Paris')->toDateTimeString();
 
         //close stocktaking
         $activeStocktaking = stocktaking::where('user_id', '=', Auth::id())->where('completed', false)->first();

@@ -125,13 +125,21 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-menu-item">
-                        <a href="/prestete-pijace">
+                    <!-- prikazi samo ako je otvoren popis -->
+                    <?php
+                    $openedCount = App\Models\stocktaking::where('user_id', Auth::id())
+                        ->where('completed', false)
+                        ->count();
+                    ?>
 
-                            <i class="fa fa-check" style="color:white;"></i>
-                            <span class="sidebar-menu-item-text">Prestete pijace</span>
-                        </a>
-                    </li>
+                    @if ($openedCount == 1)
+                        <li class="sidebar-menu-item">
+                            <a href="/prestete-pijace">
+                                <i class="fa fa-check" style="color:white;"></i>
+                                <span class="sidebar-menu-item-text">Prestete pijace</span>
+                            </a>
+                        </li>
+                    @endif
 
 
                     <li class="sidebar-menu-item">

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['ownerMiddleware'])->group(function () {
+Route::middleware(['direktorMiddleware'])->group(function () {
 
     //users
     Route::get('/zaposleni', 'adminController@usersIndex');
@@ -21,7 +21,6 @@ Route::middleware(['ownerMiddleware'])->group(function () {
     Route::post('/editUserExe', 'adminController@editUserExe');
 
     Route::get('getDescription', 'adminController@getDescription');
-
 
     //drinks
     Route::get('/pijace', 'drinksController@index');
@@ -33,16 +32,18 @@ Route::middleware(['ownerMiddleware'])->group(function () {
 
 
     //stocktakings
+    Route::get('/arhiv-popisov', 'archiveController@stocktakingIndex');
     Route::get('/ogled-popisa/{stocktakingID}', 'archiveController@inspectStocktaking');
-
     Route::get('/tiskaj-popis/{stocktakingID}', 'archiveController@printStocktaking');
     Route::get('/primerjaj-popis/{stocktakingID}', 'archiveController@compareStocktaking');
     Route::post('/primerjaj-popis-exe', 'archiveController@compareStocktakingExe');
 
+    //MENI
+    Route::get('/meni', 'menuController@privateIndex');
 });
 
 
-Route::middleware(['bartenderMiddleware'])->group(function () {
+Route::middleware(['kelnerMiddleware'])->group(function () {
 
     //CREATE STOCKTAKING
     Route::get('/zacni-popis', 'inventoryController@createStocktaking');
@@ -67,38 +68,46 @@ Route::middleware(['bartenderMiddleware'])->group(function () {
 });
 
 
-//ARCHIVE STOCKTAKINGS
-Route::get('/arhiv-popisov', 'archiveController@stocktakingIndex');
+Route::middleware(['operativcMiddleware'])->group(function () {
 
+    //events
+    Route::get('/dogodki', 'eventsController@index');
+    Route::get('/dodaj-dogodek', 'eventsController@addEvent');
+    Route::post('/dodaj-dogodek-exe', 'eventsController@addEventExe');
+    Route::get('/izbrisi-dogodek/{eventID}', 'eventsController@deleteEvent');
+    Route::get('/uredi-dogodek/{eventID}', 'eventsController@editEventIndex');
+    Route::post('/uredi-dogodek-exe', 'eventsController@editEventExe');
+
+    //tournaments
+    Route::get('/turniri', 'tournamentController@index');
+    Route::get('/dodaj-turnir', 'tournamentController@new');
+    Route::post('/dodaj-turnir-exe', 'tournamentController@newExe');
+    Route::get('/turnir/{tournamentID}', 'tournamentController@singleTournament');
+});
+
+
+//public routes
+Route::get('/odjava', 'basicController@odjava');
+Route::get('/', 'menuController@publicIndex');
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 
 //global
-Route::get('/odjava', 'basicController@odjava');
+
 
 
 //meni
-Route::get('/meni', 'menuController@privateIndex');
-Route::get('/', 'menuController@publicIndex');
+
+
 
 Route::get('/dogodek/{eventID}', 'eventsController@guestDisplayEvent');
 
-//events
-Route::get('/dogodki', 'eventsController@index');
-Route::get('/dodaj-dogodek', 'eventsController@addEvent');
-Route::post('/dodaj-dogodek-exe', 'eventsController@addEventExe');
-Route::get('/izbrisi-dogodek/{eventID}', 'eventsController@deleteEvent');
-Route::get('/uredi-dogodek/{eventID}', 'eventsController@editEventIndex');
-Route::post('/uredi-dogodek-exe', 'eventsController@editEventExe');
 
 
-//tournaments
-Route::get('/turniri', 'tournamentController@index');
-Route::get('/dodaj-turnir', 'tournamentController@new');
-Route::post('/dodaj-turnir-exe', 'tournamentController@newExe');
-Route::get('/turnir/{tournamentID}', 'tournamentController@singleTournament');
+
+
 
 
 //teams
@@ -123,9 +132,4 @@ Route::get('/blez', 'testController@blez');
 
 
 //popisi
-
-
-
-
-
-Route::get('/error-page', 'basicController@errorPage');
+Route::get('/access-denied', 'basiController@accessDenied');

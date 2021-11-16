@@ -11,7 +11,14 @@ class basicController extends Controller
         return view('stock.errorPage');
     }
 
-    public function odjava(){
+
+    public function accessDenied()
+    {
+        return view('stock.errorPage');
+    }
+
+    public function odjava()
+    {
         auth()->logout();
         return redirect('/');
     }

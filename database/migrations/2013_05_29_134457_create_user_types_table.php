@@ -18,6 +18,12 @@ class CreateUserTypesTable extends Migration
             $table->string('userType');
             $table->string('description');
             $table->timestamps();
+
+
+            //1 - uporabnik
+            //2- kelner
+            //3 - operativc
+            //4 - direktor
         });
     }
 

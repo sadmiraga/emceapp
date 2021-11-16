@@ -10,6 +10,11 @@
         <a href="www.facebook.com"><i class="social-icons fa fa-twitter"></i></a>
     </div>
 
+
+    <p class="author">
+        <span>Created by: <br> <a href="http://sadmir-hasanic.com/"> Sadmir Hasanić </a> </span>
+    </p>
+
     <a id="adminitracija" href="/aktivni-popis">Administracija</a>
 
 </footer>
