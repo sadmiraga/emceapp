@@ -1,11 +1,19 @@
 @extends("layouts.adminLayout")
+
+@section('admin-title')
+    <h2 class="admin-header">pijace</h2>
+@endsection
+
 @section('content')
 
     <div class="container" id="drinks-index-container">
 
         <!-- SEARCH -->
-        <div class="form-group">
-            <input id="myInput" class="form-control" type="text" placeholder="Search..">
+        <div class="form-group new-drink-form">
+            <div onclick="location.href='/dodaj-pijaco'" class="add-new-drink-button">
+                <i class="fas fa-plus"></i>
+            </div>
+            <input id="myInput" class="form-control" type="text" placeholder="Iskanje..">
         </div>
 
         @if (session()->has('message'))
@@ -41,12 +49,11 @@
 
                             <td>
                                 <!-- EDIT -->
-                                <button onclick="location.href='/uredi-pijaco/{{ $drink->id }}'"
-                                    class="btn btn-primary">Uredi</button>
+                                <div onclick="location.href='/uredi-pijaco/{{ $drink->id }}'" class="add-new-event">
+                                    <i class="fas fa-cog"></i>
+                                </div>
 
-                                <!-- DELETE -->
-                                <button onclick="location.href='/izbrisi-pijaco/{{ $drink->id }}'"
-                                    class="btn btn-danger">Izbrisi</button>
+
                             </td>
 
                         </tr>
@@ -55,7 +62,6 @@
             </table>
         </div>
 
-        <button onclick="location.href='/dodaj-pijaco'" class="btn btn-success">Dodaj Pijačo</button>
 
 
     </div> <!-- end CONTAINER -->

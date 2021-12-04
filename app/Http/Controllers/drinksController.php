@@ -22,8 +22,11 @@ class drinksController extends Controller
 
         $drinks = DB::table('drinks')->join('drink_categories', function ($join) {
             $join->on('drink_categories.id', '=', 'drinks.category_id');
-        })->select('*')->get();
+        })->select('drink_categories.categoryName as categoryName', 'drinks.name as name', 'drinks.price as price', 'drinks.packing_weight as packing_weight', 'drinks.id as id')->orderBy('drinks.created_at', 'desc')->get();
 
+        //return $drinks;
+
+        //return $drinks;
         return view('admin.drinks.drinksIndex')->with('drinks', $drinks);
     }
 

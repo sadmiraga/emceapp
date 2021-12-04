@@ -13410,6 +13410,29 @@ body {
     float: left;
   }
 }
+.add-new-drink-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 30%;
+  background-color: #38c172;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-new-drink-button:hover {
+  background-color: #2c9659;
+  cursor: pointer;
+}
+
+.new-drink-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+}
+
 #menu-cover {
   min-width: 100%;
   background-color: #e8e8e8;
@@ -13940,7 +13963,7 @@ body {
   justify-content: space-between;
   padding-right: 4%;
   padding-left: 4%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 
 .unclickable {
@@ -14106,6 +14129,11 @@ body {
 
 .event-card {
   margin-bottom: 5%;
+  border-radius: 20px;
+}
+
+.event-cover-image {
+  border-radius: 20px 20px 0px 0px;
 }
 
 /* display event to guest */
@@ -14217,6 +14245,21 @@ body {
 
   .thin-header {
     margin-bottom: 20px;
+  }
+}
+@media only screen and (min-width: 950px) {
+  .tournament-application-container {
+    width: 40%;
+    border-radius: 10px;
+    border: 1px solid #AAAAAA;
+    border-radius: 10px;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 3%;
+  }
+
+  .prize-header {
+    margin-top: 1rem !important;
   }
 }
 .team-card {

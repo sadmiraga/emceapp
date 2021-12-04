@@ -26,6 +26,8 @@ class LoginController extends Controller
      *
      * @var string
      */
+
+    //if($user::Auth()->$user_type)
     protected $redirectTo = "/aktivni-popis";
 
     /**

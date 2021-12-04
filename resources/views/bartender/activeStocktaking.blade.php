@@ -1,5 +1,9 @@
 @extends('layouts.adminLayout')
 
+@section('admin-title')
+    <h2 class="admin-header">Nepreštete pijače</h2>
+@endsection
+
 
 <script>
     function activeStocktakingSearch() {
@@ -12,8 +16,8 @@
 
 @section('content')
 
-        <!-- ALERT MESSAGES -->
-        <x-alert-component />
+    <!-- ALERT MESSAGES -->
+    <x-alert-component />
 
     @if ($started_bool == false)
         <div class="custom-container" id="start-stocklisting">
@@ -66,8 +70,9 @@
                                 </div>
 
                                 <div class="drink-button">
-                                    <button onclick="submitQuantity({{ $drink->drinkID }})"
-                                        class="btn btn-success">Ok</button>
+                                    <button onclick="submitQuantity({{ $drink->drinkID }})" class="btn btn-success">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
                                 </div>
                             </div>
                         @endif
@@ -85,8 +90,9 @@
                                 </div>
 
                                 <div class="drink-button">
-                                    <button onclick="submitWeight({{ $drink->drinkID }})"
-                                        class="btn btn-success">Ok</button>
+                                    <button onclick="submitWeight({{ $drink->drinkID }})" class="btn btn-success">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
                                 </div>
 
                             </div>

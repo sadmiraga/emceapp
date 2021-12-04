@@ -120,7 +120,8 @@
                     <!-- @kelner -->
                     <li class="sidebar-menu-item">
                         <a href="/aktivni-popis">
-                            <i class="fa fa-exclamation-triangle" style="color:white;"></i>
+
+                            <i class="far fa-file-alt" style="color:white;"></i>
                             <span class="sidebar-menu-item-text">Popis</span>
                         </a>
                     </li>

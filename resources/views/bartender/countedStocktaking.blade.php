@@ -1,5 +1,9 @@
 @extends('layouts.adminLayout')
 
+@section('admin-title')
+    <h2 class="admin-header">Preštete pijače</h2>
+@endsection
+
 <script>
     function countedStocktakingSearch() {
         var query = document.getElementById("search-input-counted-stocktaking").value;
@@ -29,8 +33,8 @@
     <!-- back to top button -->
     <a id="back-to-top-button"></a>
 
-    <div class="row confirm-cancel-container">
-        <button onclick="location.href='/oddaj-popis'" class="btn btn-danger">Preklici popis</button>
+    <div class="row confirm-cancel-container" style="justify-content:flex-end !important;">
+
         <button onclick="location.href='/oddaj-popis'" class="btn btn-success">Oddaj popis</button>
     </div>
 
@@ -59,8 +63,9 @@
                             </div>
 
                             <div class="drink-button">
-                                <button onclick="submitAdditionalQuantity({{ $drink->drinkID }})"
-                                    class="btn btn-success">Dodaj</button>
+                                <button onclick="submitAdditionalQuantity({{ $drink->drinkID }})" class="btn btn-success">
+                                    <i class="fas fa-plus"></i>
+                                </button>
                             </div>
                         </div>
                     @endif
@@ -81,8 +86,9 @@
                             </div>
 
                             <div class="drink-button">
-                                <button onclick="submitAdditionalWeight({{ $drink->drinkID }})"
-                                    class="btn btn-success">Dodaj</button>
+                                <button onclick="submitAdditionalWeight({{ $drink->drinkID }})" class="btn btn-success">
+                                    <i class="fas fa-plus"></i>
+                                </button>
                             </div>
 
                         </div>

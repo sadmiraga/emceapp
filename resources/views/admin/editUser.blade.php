@@ -38,7 +38,9 @@
 
             <!-- submit -->
             <div class="form-group">
-                <button class="btn btn-success fullwidth" type="submit">Shrani</button>
+                <button class="btn btn-success fullwidth" type="submit">
+                    <i class="fas fa-check"></i>
+                </button>
             </div>
         </div>
         {!! Form::close() !!}

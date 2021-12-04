@@ -1,5 +1,9 @@
 @extends('layouts.adminLayout')
 
+@section('admin-title')
+    <h2 class="admin-header">turniri</h2>
+@endsection
+
 @section('content')
 
 
@@ -15,20 +19,21 @@
 
         @foreach ($tournaments as $tournament)
 
-            <div onclick="location.href='/turnir/{{ $tournament->id }}'" class="card event-card" id="tournamentCard"
-                style="width: 80%;">
-                <img class="card-img-top" src="/images/tournaments/covers/{{ $tournament->image }}" alt="Card image cap">
+
+            <div onclick="location.href='/turnir/{{ $tournament->id }}'" class="card event-card" style="width: 50%;">
+                <img class="card-img-top event-cover-image" src="/images/tournaments/covers/{{ $tournament->image }}"
+                    alt="Card image cap">
                 <div class="card-body">
 
                     <!-- NAME -->
-
                     <div class="centered-header">
-                        <p class="tournament-name">{{ $tournament->name }}</p>
+                        <p>{{ $tournament->name }}</p>
                     </div>
-
 
                 </div>
             </div>
+
+
 
         @endforeach
 

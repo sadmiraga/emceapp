@@ -77,7 +77,7 @@
 
         </div>
 
-        <h2 class="thin-header" style="margin-bottom: 0px !important;">nagrada</h2>
+        <h2 class="thin-header prize-header" style="margin-bottom: 0px !important;">nagrada</h2>
         <h4 class="below-header">{{ $tournament->prize }}</h4>
 
         <div class="prize-container">

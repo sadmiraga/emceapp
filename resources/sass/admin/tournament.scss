@@ -80,8 +80,27 @@
         margin-right: 20%;
         margin-left: 20%;
     }
-    
+
     .thin-header{
         margin-bottom:20px;
     }
 }
+
+
+@media only screen and (min-width:950px){
+
+    .tournament-application-container{
+        width: 40%;
+    border-radius: 10px;
+    border: 1px solid #AAAAAA;
+    border-radius: 10px;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 3%;
+    }
+
+    .prize-header{
+        margin-top:1rem !important;
+    }
+}
+

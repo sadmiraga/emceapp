@@ -1,5 +1,9 @@
 @extends('layouts.adminLayout')
 
+@section('admin-title')
+    <h2 class="admin-header">Dodaj turnir</h2>
+@endsection
+
 @section('content')
 
 

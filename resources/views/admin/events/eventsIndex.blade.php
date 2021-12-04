@@ -1,5 +1,9 @@
 @extends('layouts.adminLayout')
 
+@section('admin-title')
+    <h2 class="admin-header">dogodki</h2>
+@endsection
+
 @section('content')
 
 
@@ -13,7 +17,8 @@
 
         @foreach ($events as $event)
             <div class="card event-card" style="width: 50%;">
-                <img class="card-img-top" src="/images/events/{{ $event->eventPicture }}" alt="Card image cap">
+                <img class="card-img-top event-cover-image" src="/images/events/{{ $event->eventPicture }}"
+                    alt="Card image cap">
                 <div class="card-body">
 
                     <!-- NAME -->

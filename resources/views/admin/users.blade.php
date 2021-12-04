@@ -19,7 +19,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Ime</th>
                     <th scope="col">Priimek</th>
-                    <th scope="col"> </th>
+                    <th scope="col">Tip zaposlenega</th>
                     <th scope="col">#</th>
                 </tr>
             </thead>
@@ -32,8 +32,11 @@
                         <td>{{ $user->lastName }}</td>
                         <td>{{ $user->userType }}</td>
                         <td>
-                            <button onclick="location.href='/uredi-zaposleni/{{ $user->id }}'"
-                                class="btn btn-primary">Uredi</button>
+
+
+                            <div onclick="location.href='/uredi-zaposleni/{{ $user->id }}'" class="add-new-event">
+                                <i class="fas fa-cog"></i>
+                            </div>
 
                         </td>
                     </tr>

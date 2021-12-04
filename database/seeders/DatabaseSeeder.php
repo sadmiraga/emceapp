@@ -17,6 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(usertypeSeeder::class);
         $this->call(userSeeder::class);
         $this->call(drinkCategorySeeder::class);
-        //$this->call(drinksSeeder::class);
+        $this->call(drinksSeeder::class);
     }
 }
