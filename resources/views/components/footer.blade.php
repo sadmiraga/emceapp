@@ -15,6 +15,6 @@
         <span>Created by: <br> <a href="http://sadmir-hasanic.com/"> Sadmir Hasanić </a> </span>
     </p>
 
-    <a id="adminitracija" href="/aktivni-popis">Administracija</a>
+    <a id="adminitracija" href="/admin-redirect">Administracija</a>
 
 </footer>

@@ -109,6 +109,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
 
 
     Route::get('/odjava', 'basicController@odjava')->middleware('auth');
+    Route::get('/admin-redirect', 'basicController@adminRedirect');
 
 
     //public routes

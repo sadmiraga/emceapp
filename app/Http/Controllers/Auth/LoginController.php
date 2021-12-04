@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+
+use Illuminate\Support\Facades\Auth;
+
 class LoginController extends Controller
 {
     /*
@@ -27,8 +30,31 @@ class LoginController extends Controller
      * @var string
      */
 
-    //if($user::Auth()->$user_type)
-    protected $redirectTo = "/aktivni-popis";
+
+    //protected $redirectTo = "/aktivni-popis";
+
+    public function redirectTo()
+    {
+
+        $role = Auth::user()->type_id;
+
+        switch ($role) {
+
+            case 4:
+                return '/meni';
+                break;
+            case 3:
+                return '/dogodki';
+                break;
+            case 2:
+                return '/aktivni-popis';
+                break;
+
+            default:
+                return '/';
+                break;
+        }
+    }
 
     /**
      * Create a new controller instance.
