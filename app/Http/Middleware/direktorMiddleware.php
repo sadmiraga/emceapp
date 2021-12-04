@@ -18,12 +18,11 @@ class direktorMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($user = Auth::user()) {
-
+        if (Auth::user()) {
             if (Auth::user()->type_id == 4) {
                 return $next($request);
             } else {
-                return redirect('/access-denied');
+                return redirect('/');
             }
         } else {
             return redirect('/login');
