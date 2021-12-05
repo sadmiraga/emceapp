@@ -19,7 +19,7 @@ class operativcMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (Auth::user()) {
-            if (Auth::user()->type_id == 3) {
+            if (Auth::user()->type_id == 3 || Auth::user()->type_id == 4) {
                 return $next($request);
             } else {
                 return redirect('/');

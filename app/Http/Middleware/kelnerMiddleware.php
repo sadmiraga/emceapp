@@ -18,7 +18,7 @@ class kelnerMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (Auth::user()) {
-            if (Auth::user()->type_id == 2) {
+            if (Auth::user()->type_id == 2 || Auth::user()->type_id == 4) {
                 return $next($request);
             } else {
                 return redirect('/');

@@ -8,10 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+
+    <title>eMCe plac</title>
+    <link rel="icon" type="image/png" href="/images/logos/icon.png" />
+
 
     <!-- CUSTOM JS -->
     <script src="{{ asset('js/admin/sidebar.js') }}" defer></script>

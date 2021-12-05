@@ -164,12 +164,12 @@ class inventoryController extends Controller
             $join->on('drinks.id', '=', 'drink_stocktakings.drink_id');
         })
             ->select('drinks.id as drinkID', 'drinks.name as drinkName', 'drink_stocktakings.quantity as drinkQuantity', 'drink_stocktakings.weight as drinkWeight', 'stocktakings.id as stocktakingID')
-            //->selectRaw('`drinks`.`id` as uid')
             ->where('drinks.name', 'LIKE', "%$query%")
             ->where(function ($execute) {
                 $execute->where('drink_stocktakings.quantity', '=', null)
                     ->orWhere('drink_stocktakings.weight', '=', null);
             })
+            ->where('stocktakings.completed', '=', false)
             ->get();
 
         return view('bartender.activeStocktaking')->with('started_bool', $started_bool)->with('drinks', $drinks);
@@ -190,8 +190,7 @@ class inventoryController extends Controller
                 $execute->where('drink_stocktakings.quantity', '!=', null)
                     ->orWhere('drink_stocktakings.weight', '!=', 0);
             })
-            //->where('drink_stocktakings.quantity', '!=', null)
-            //->orWhere('drink_stocktakings.weight', '!=', 0)
+            ->where('stocktakings.completed', '=', false)
             ->get();
         return view('bartender.countedStocktaking')->with('drinks', $drinks);
     }
