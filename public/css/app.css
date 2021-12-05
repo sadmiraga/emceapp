@@ -13814,7 +13814,7 @@ nav {
   height: 200px;
   margin-right: 10px;
   background: #b30f13;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
