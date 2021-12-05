@@ -1,5 +1,9 @@
 @extends('layouts.adminLayout')
 
+@section('admin-title')
+    <h2 class="admin-header">Arhiv popisov</h2>
+@endsection
+
 @section('content')
 
 

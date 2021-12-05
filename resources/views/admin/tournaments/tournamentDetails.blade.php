@@ -1,5 +1,10 @@
 @extends('layouts.adminLayout')
 
+
+@section('admin-title')
+    <h2 class="admin-header">{{ $tournament->name }}</h2>
+@endsection
+
 @section('content')
 
 
